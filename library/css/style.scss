@@ -31,7 +31,8 @@
 $fontFamily: "Inter", sans-serif;
 $fontWeight: 400;
 $fontSize: rem(20);
-$mainColor: #333333;
+$mainColor: #000000;
+$mainBackground: #fff;
 
 @import "_null";
 
@@ -42,6 +43,10 @@ html {
 }
 
 .wrapper {
+  max-width: 1440px;
+  margin: 0px auto;
+  //padding: 0px 15px;
+  background: $mainBackground;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -57,9 +62,9 @@ html {
 }
 
 [class*="__container"] {
-  max-width: 1470px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
+  max-width: 1450px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
   margin: 0px auto;
-  padding: 0px 15px;
+  padding: 0px 20px;
   @media (max-width: 1199.98px) {
     //max-width: 970px;
   }
@@ -87,3 +92,76 @@ html {
 }
 
 //============= Общие стили ===============//
+
+//============= header ===============//
+.header {
+  // .header__container
+
+  &__container {
+    background: #0c0c0e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    min-height: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  // .header__title
+
+  &__title {
+    font-family: "Forum";
+    font-size: 30px;
+    line-height: 1.67;
+    letter-spacing: 0.6px;
+    &:not(:last-child) {
+      margin-right: rem(454);
+    }
+  }
+
+  // .header__menu
+
+  &__menu {
+    &:not(:last-child) {
+      margin-right: rem(40);
+    }
+  }
+
+  // .header__image
+
+  &__image {
+  }
+}
+.menu {
+  // .menu__body
+
+  &__body {
+  }
+
+  // .menu__list
+
+  &__list {
+    display: flex;
+    gap: 30px;
+    line-height: 2.5;
+  }
+
+  // .menu__item
+
+  &__item {
+  }
+
+  // .menu__link
+
+  &__link {
+  }
+
+  // .menu__icon
+
+  &__icon {
+  }
+}
+.icon-menu {
+}
+
+//============= header ===============//

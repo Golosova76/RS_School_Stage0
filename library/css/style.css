@@ -88,12 +88,12 @@ a {
 }
 
 body {
-  color: #333333;
+  color: #000000;
   line-height: 1;
   font-family: "Inter", sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
-  background: #ffffff;
+  background: rgba(218, 213, 213, 0.258);
 }
 
 html {
@@ -101,6 +101,9 @@ html {
 }
 
 .wrapper {
+  max-width: 1440px;
+  margin: 0px auto;
+  background: #fff;
   min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -121,9 +124,9 @@ html {
 }
 
 [class*=__container] {
-  max-width: 1470px;
+  max-width: 1450px;
   margin: 0px auto;
-  padding: 0px 15px;
+  padding: 0px 20px;
 }
 [class*=-ibg] {
   position: relative;
@@ -136,4 +139,37 @@ html {
   left: 0;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.header__container {
+  background: #0c0c0e;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 90px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.header__title {
+  font-family: "Forum";
+  font-size: 30px;
+  line-height: 1.67;
+  letter-spacing: 0.6px;
+}
+.header__title:not(:last-child) {
+  margin-right: 28.375rem;
+}
+.header__menu:not(:last-child) {
+  margin-right: 2.5rem;
+}
+.menu__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 30px;
+  line-height: 2.5;
 }
