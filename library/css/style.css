@@ -20,6 +20,10 @@
   font-style: normal;
   font-display: swap;
 }
+.welcome__title, .header__title {
+  font-family: "Forum";
+}
+
 /* Обнуление стилей */
 * {
   padding: 0px;
@@ -155,13 +159,12 @@ html {
   padding-bottom: 20px;
 }
 .header__title {
-  font-family: "Forum";
   font-size: 30px;
   line-height: 1.67;
   letter-spacing: 0.6px;
 }
-.header__title:not(:last-child) {
-  margin-right: 28.375rem;
+.header__menu {
+  margin-left: auto;
 }
 .header__menu:not(:last-child) {
   margin-right: 2.5rem;
@@ -170,6 +173,70 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px 30px;
   line-height: 2.5;
+}
+.menu__link {
+  position: relative;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.menu__link::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 2px;
+  width: 0;
+  background-color: #fff;
+  border-radius: 50px;
+  -webkit-transition: width 0.3s ease;
+  -o-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+}
+.menu__link:hover::before {
+  width: 100%;
+}
+.welcome__body {
+  position: relative;
+  padding-top: 220px;
+  padding-bottom: 160px;
+}
+.welcome__content {
+  position: relative;
+  z-index: 3;
+  max-width: 600px;
+  background-color: #0c0c0e;
+  padding: 35px 40px;
+}
+.welcome__title {
+  max-width: 520px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1.25;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.welcome__image-ibg {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.welcome__image-ibg::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0c0c0e), color-stop(0.01%, #0c0c0e), to(rgba(18, 18, 21, 0.1)));
+  background-image: -o-linear-gradient(top, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 100%);
+  background-image: linear-gradient(180deg, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 100%);
 }

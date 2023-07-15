@@ -3,3 +3,7 @@
   $result: math.div($px, 16) + rem;
   @return $result;
 }
+//шрифт
+%forum {
+  font-family: "Forum";
+}
