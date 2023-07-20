@@ -43,9 +43,6 @@ html {
 }
 
 .wrapper {
-  max-width: 1440px;
-  margin: 0px auto;
-  //padding: 0px 15px;
   background: $mainBackground;
   min-height: 100%;
   display: flex;
@@ -62,7 +59,7 @@ html {
 }
 
 [class*="__container"] {
-  max-width: 1450px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
+  max-width: 1440px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
   margin: 0px auto;
   padding: rem(20) rem(20) rem(40) rem(20);
   @media (max-width: 1199.98px) {
@@ -121,6 +118,7 @@ html {
 
 //============= header ===============//
 .header {
+  background: #0c0c0e;
   // .header__container
 
   &__container {
@@ -218,16 +216,17 @@ html {
   // .page__welcome
 
   &__welcome {
+    position: relative;
   }
 }
 .welcome {
-  // .welcome__body
+  // .welcome__container
 
-  &__body {
+  &__container {
     position: relative;
-    //z-index: 2;
     padding-top: 220px;
     padding-bottom: 160px;
+    padding-left: 0;
   }
 
   // .welcome__content
@@ -238,6 +237,7 @@ html {
     max-width: 600px;
     background-color: #0c0c0e;
     padding: 35px 40px;
+    //padding: 35px 40px 35px 0;
   }
 
   // .welcome__title

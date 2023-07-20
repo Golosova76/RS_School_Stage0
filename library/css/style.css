@@ -105,8 +105,6 @@ html {
 }
 
 .wrapper {
-  max-width: 1440px;
-  margin: 0px auto;
   background: #fff;
   min-height: 100%;
   display: -webkit-box;
@@ -128,7 +126,7 @@ html {
 }
 
 [class*=__container] {
-  max-width: 1450px;
+  max-width: 1440px;
   margin: 0px auto;
   padding: 1.25rem 1.25rem 2.5rem 1.25rem;
 }
@@ -167,6 +165,9 @@ html {
   background-color: #0c0c0e;
 }
 
+.header {
+  background: #0c0c0e;
+}
 .header__container {
   background: #0c0c0e;
   color: #fff;
@@ -221,10 +222,15 @@ html {
 .menu__link:hover::before {
   width: 100%;
 }
-.welcome__body {
+.page__welcome {
+  position: relative;
+}
+
+.welcome__container {
   position: relative;
   padding-top: 220px;
   padding-bottom: 160px;
+  padding-left: 0;
 }
 .welcome__content {
   position: relative;
