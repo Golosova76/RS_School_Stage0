@@ -20,7 +20,7 @@
   font-style: normal;
   font-display: swap;
 }
-.item-tabs__subtitle, .welcome__title, .header__title, .header-main__title {
+.menu-coffee__price, .menu-coffee__title, .item-tabs__subtitle, .welcome__title, .header__title, .header-main__title {
   font-family: "Forum";
 }
 
@@ -323,217 +323,6 @@ html {
   background: #0c0c0e;
 }
 
-/*
-.page {
-  // .page__favorites
-
-  &__favorites {
-  }
-}
-.favorites {
-  // .favorites__container
-
-  &__container {
-    > *:not(:last-child) {
-      margin-bottom: 40px;
-    }
-  }
-
-  // .favorites__header
-
-  &__header {
-  }
-
-  // .favorites__text
-
-  &__text {
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  // .favorites__tabs
-
-  &__tabs {
-  }
-}
-
-.tabs {
-  // .tabs__nav
-
-  &__nav {
-    display: flex;
-    justify-content: flex-start;
-    column-gap: 90px;
-    &:not(:last-child) {
-      margin-bottom: 41px;
-    }
-  }
-
-  // .tabs__label
-
-  &__label {
-    padding-left: 38px;
-    cursor: pointer;
-    line-height: 1.2;
-  }
-
-  // .tabs__input
-
-  &__input {
-    position: absolute;
-    appearance: none;
-    &:checked + .tabs__box {
-      background-image: url(../img/favorites/nav/group.svg);
-    }
-    &:checked ~ .tabs__text {
-      font-weight: 700;
-    }
-  }
-
-  // .tabs__box
-
-  &__box {
-    position: absolute;
-    margin-top: 5px;
-    width: 17px;
-    height: 17px;
-    margin-left: -40px;
-    background-image: url(../img/favorites/nav/ellipse.svg);
-  }
-
-  // .tabs__box
-
-  &__text {
-  }
-
-  // .tabs__body
-
-  &__body {
-  }
-
-  // .tabs__item
-
-  &__item {
-  }
-}
-.item-tabs {
-  // .item-tabs_winter
-
-  &_winter {
-  }
-
-  // .item-tabs__items
-
-  &__items {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    //column-gap: 220px;
-    row-gap: 40px;
-    //padding-right: 40px;
-  }
-
-  // .item-tabs__item
-
-  &__item {
-    position: relative;
-    //flex: 0 1 50%;
-    max-width: 550px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 14px 0 14px 19px;
-    margin-right: 40px;
-    border: 1px solid #000;
-    width: 100%;
-  }
-
-  // .item-tabs__subtitle
-
-  &__subtitle {
-    position: relative;
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-    @extend %forum;
-    line-height: 2;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 1px;
-      background-color: #bb945f;
-    }
-  }
-
-  // .item-tabs__title
-
-  &__title {
-    &:not(:last-child) {
-      margin-bottom: 20px;
-    }
-    & span {
-      display: block;
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 266.667%;
-      letter-spacing: 2px;
-    }
-    & .item-tabs__eaters {
-      text-transform: uppercase;
-    }
-    & .item-tabs__dean {
-      text-transform: capitalize;
-    }
-  }
-
-  // .item-tabs__text
-
-  &__text {
-    &:not(:last-child) {
-      margin-bottom: 16px;
-    }
-    max-width: 355px;
-    min-height: 320px;
-    font-size: 15px;
-    line-height: 266.667%;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-  }
-
-  // .item-tabs__button
-
-  &__button {
-  }
-
-  // .item-tabs__image-ibg
-
-  &__image-ibg {
-    position: absolute;
-    right: -40px;
-    bottom: -1px;
-    width: 200px;
-    height: 300px;
-  }
-}
-.button {
-  display: flex;
-  max-width: 75px;
-  padding: 8px 26px;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  color: #0c0c0e;
-  border-radius: 2px;
-  border: 1px solid #0c0c0e;
-}
-*/
 .favorites__container > *:not(:last-child) {
   margin-bottom: 40px;
 }
@@ -690,4 +479,78 @@ html {
   color: #bb945f;
   border: 1px solid #bb945f;
   pointer-events: none;
+}
+
+.coffee__container > *:not(:last-child) {
+  margin-bottom: 40px;
+}
+.coffee__text {
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 2px;
+}
+.menu-coffee {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.menu-coffee__drinks {
+  max-width: 438px;
+  margin-right: auto;
+  width: 100%;
+}
+.menu-coffee__title {
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  color: #bb945f;
+}
+.menu-coffee__title:not(:last-child) {
+  margin-bottom: 40px;
+}
+.menu-coffee__title_left {
+  text-align: left;
+}
+.menu-coffee__title_right {
+  text-align: right;
+}
+.menu-coffee__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 2;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+.menu-coffee__list:not(:last-child) {
+  margin-bottom: 40px;
+}
+.menu-coffee__text_left {
+  min-width: 198px;
+  margin-right: 60px;
+  white-space: nowrap;
+}
+.menu-coffee__text_right {
+  min-width: 210px;
+  margin-right: 60px;
+  white-space: nowrap;
+  text-align: right;
+}
+.menu-coffee__line {
+  background: #bb945f;
+  width: 100px;
+  height: 1px;
+}
+.menu-coffee__price {
+  margin-left: 60px;
+  max-width: 31px;
+}
+.menu-coffee__cakes {
+  max-width: 461px;
+  margin-left: auto;
+  width: 100%;
 }
