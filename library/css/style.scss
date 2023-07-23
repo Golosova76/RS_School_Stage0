@@ -114,6 +114,31 @@ html {
   }
 }
 
+.button {
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #0c0c0e;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    background-color: #bb945f;
+    border: 1px solid #bb945f;
+  }
+
+  // .button_own
+
+  &_own {
+    color: #bb945f;
+    border: 1px solid #bb945f;
+    pointer-events: none;
+  }
+}
+
 //============= Общие стили ===============//
 
 //============= header ===============//
@@ -577,10 +602,8 @@ html {
   // .item-tabs__button
 
   &__button {
-    &:hover {
-      background-color: #bb945f;
-      border: 1px solid #bb945f;
-    }
+    max-width: 75px;
+    padding: 8px 26px;
   }
 
   // .item-tabs__image-ibg
@@ -591,27 +614,6 @@ html {
     bottom: -1px;
     width: 200px;
     height: 300px;
-  }
-}
-.button {
-  display: flex;
-  max-width: 75px;
-  padding: 8px 26px;
-  font-size: 10px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: 1px;
-  color: #0c0c0e;
-  border-radius: 2px;
-  border: 1px solid #0c0c0e;
-  transition: all 0.3s ease 0s;
-
-  // .button_own
-
-  &_own {
-    color: #bb945f;
-    border: 1px solid #bb945f;
-    pointer-events: none;
   }
 }
 
@@ -851,3 +853,171 @@ html {
 }
 
 //============= contacts ==============//
+
+//============= library-cards ==============//
+.page {
+  // .page__library-cards
+
+  &__library-cards {
+  }
+}
+
+.library-cards {
+  // .library-cards__container
+
+  &__container {
+  }
+
+  // .library-cards__header
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  // .library-cards__body
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  // .library-cards__forms
+
+  &__forms {
+    flex: 0 0 42.86%;
+  }
+
+  // .library-cards__account
+
+  &__account {
+    padding-top: 4px;
+    text-align: right;
+    > *:not(:last-child) {
+      margin-bottom: 35px;
+    }
+  }
+
+  // .library-cards__get
+
+  &__get {
+    @extend %forum;
+    font-size: 30px;
+    letter-spacing: 0.6px;
+  }
+
+  // .library-cards__text
+
+  &__text {
+    max-width: 456px;
+    text-align: right;
+    line-height: 2;
+    letter-spacing: 0.4px;
+  }
+
+  // .library-cards__buttons
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+  }
+
+  // .library-cards__button
+
+  &__button {
+    display: block;
+    width: 75px;
+    padding: 9px 14px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+}
+
+.card {
+  // .card__subtitle
+
+  &__subtitle {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: 0.6px;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  // .card__form
+
+  &__form {
+    border: 3px solid #bb945f;
+    background: #fff;
+    padding: rem(17) rem(20) rem(27) rem(20);
+    text-align: center;
+  }
+
+  // .card__column
+
+  &__column {
+    padding: rem(20) rem(20) rem(25) rem(20);
+    background-color: #bb945f;
+    &:not(:last-child) {
+      margin-bottom: rem(20);
+    }
+  }
+
+  // .card__fieldset
+
+  &__fieldset {
+  }
+
+  // .card__title
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @extend %forum;
+    font-size: 30px;
+    line-height: 1.67;
+    letter-spacing: 0.6px;
+    text-align: left;
+  }
+
+  // .card__input
+
+  &__input {
+    padding-left: 18px;
+    border-radius: 10px;
+    background: #fff;
+    height: 66px;
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 25px;
+    }
+    &::placeholder {
+      @extend %forum;
+      font-size: 30px;
+      line-height: 1.67;
+      letter-spacing: 0.6px;
+    }
+  }
+
+  // .card__button
+
+  &__button {
+    display: inline-block;
+    padding: 9px 40px;
+    font-size: 20px;
+    text-align: center;
+
+    // .card__button_big
+
+    &_big {
+    }
+  }
+}
+
+//============= library-cards ==============//
