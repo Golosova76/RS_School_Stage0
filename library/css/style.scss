@@ -398,9 +398,9 @@ html {
 .swiper-button-three {
 }
 
-//============= about ===============//
+//======== about =========//
 
-//============ favorites ============//
+//====== favorites =======//
 .page {
   // .page__favorites
 
@@ -617,9 +617,9 @@ html {
   }
 }
 
-//============ favorites =============//
+//===== favorites =======//
 
-//============= coffee ==============//
+//====== coffee ========//
 .page {
   // .page__coffee
 
@@ -758,9 +758,9 @@ html {
   }
 }
 
-//============= coffee ==============//
+//======== coffee =====//
 
-//============= contacts ==============//
+//===== contacts =====//
 .page {
   // .page__contacts
 
@@ -852,9 +852,9 @@ html {
   }
 }
 
-//============= contacts ==============//
+//======= contacts ========//
 
-//============= library-cards ==============//
+//===== library-cards =====//
 .page {
   // .page__library-cards
 
@@ -1020,4 +1020,132 @@ html {
   }
 }
 
-//============= library-cards ==============//
+//===== library-cards =====//
+
+//======== footer ========//
+.footer {
+  background-color: #0c0c0e;
+  // .footer__container
+
+  &__container {
+    color: #fff;
+  }
+
+  // .footer__top
+
+  &__top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: 31px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 1400px;
+      height: 1px;
+      background-color: #fff;
+    }
+  }
+
+  // .footer__content
+
+  &__content {
+    font-size: 15px;
+    line-height: 1.33;
+  }
+
+  // .footer__address
+
+  &__address {
+    display: block;
+    max-width: 229px;
+    &:not(:last-child) {
+      margin-bottom: 18px;
+    }
+  }
+
+  // .footer__icons
+
+  &__icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  // .footer__icon
+
+  &__icon {
+    //display: inline-block;
+    //width: 24px;
+    //height: 24px;
+  }
+
+  // .footer__work
+
+  &__work {
+    span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.33;
+      text-align: right;
+    }
+  }
+
+  // .footer__week
+
+  &__week {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  // .footer__weekend
+
+  &__weekend {
+  }
+
+  // .footer__bottom
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 44px;
+    padding-bottom: 4px;
+    line-height: 1;
+    letter-spacing: 2px;
+    //text-align: center;
+  }
+
+  // .footer__year
+
+  &__year {
+  }
+
+  // .footer__course
+
+  &__course {
+    margin: auto;
+    margin-left: 494px;
+  }
+
+  // .footer__stage
+
+  &__stage {
+  }
+
+  // .footer__username
+
+  &__username {
+  }
+
+  // .footer__github
+
+  &__github {
+  }
+}
+
+//======== footer ========//

@@ -190,7 +190,6 @@ html {
   border-radius: 2px;
   border: 1px solid #0c0c0e;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .button:hover {
@@ -242,7 +241,6 @@ html {
 .menu__link {
   position: relative;
   -webkit-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
 .menu__link::before {
@@ -254,7 +252,6 @@ html {
   background-color: #fff;
   border-radius: 50px;
   -webkit-transition: width 0.3s ease;
-  -o-transition: width 0.3s ease;
   transition: width 0.3s ease;
 }
 .menu__link:hover::before {
@@ -303,7 +300,6 @@ html {
   width: 100%;
   height: 300px;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#0c0c0e), color-stop(0.01%, #0c0c0e), to(rgba(18, 18, 21, 0.1)));
-  background-image: -o-linear-gradient(top, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 100%);
   background-image: linear-gradient(180deg, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 100%);
 }
 
@@ -738,4 +734,76 @@ html {
   padding: 9px 40px;
   font-size: 20px;
   text-align: center;
+}
+.footer {
+  background-color: #0c0c0e;
+}
+.footer__container {
+  color: #fff;
+}
+.footer__top {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.footer__top:not(:last-child) {
+  margin-bottom: 31px;
+}
+.footer__top::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 1400px;
+  height: 1px;
+  background-color: #fff;
+}
+.footer__content {
+  font-size: 15px;
+  line-height: 1.33;
+}
+.footer__address {
+  display: block;
+  max-width: 229px;
+}
+.footer__address:not(:last-child) {
+  margin-bottom: 18px;
+}
+.footer__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+.footer__work span {
+  display: block;
+  font-size: 15px;
+  line-height: 1.33;
+  text-align: right;
+}
+.footer__week:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 44px;
+  padding-bottom: 4px;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.footer__course {
+  margin: auto;
+  margin-left: 494px;
 }
