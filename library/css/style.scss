@@ -561,6 +561,12 @@ html {
       font-weight: 700;
       line-height: 266.667%;
       letter-spacing: 2px;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        color: #9f6211;
+      }
     }
     & .item-tabs__eaters {
       text-transform: uppercase;
@@ -825,6 +831,12 @@ html {
   &__mail {
     a {
       font-weight: 700;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        color: #8e724b;
+      }
     }
   }
 
@@ -849,6 +861,14 @@ html {
   // .phone-number__item
 
   &__item {
+    a {
+      transition: all 0.3s ease 0s;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        color: #8e724b;
+      }
+    }
   }
 }
 
@@ -1003,6 +1023,9 @@ html {
       line-height: 1.67;
       letter-spacing: 0.6px;
     }
+    &:focus {
+      outline: 2px solid #972727;
+    }
   }
 
   // .card__button
@@ -1066,6 +1089,10 @@ html {
     &:not(:last-child) {
       margin-bottom: 18px;
     }
+    transition: all 0.3s ease 0s;
+    &:hover {
+      color: #e1b373;
+    }
   }
 
   // .footer__icons
@@ -1078,9 +1105,14 @@ html {
   // .footer__icon
 
   &__icon {
-    //display: inline-block;
-    //width: 24px;
-    //height: 24px;
+    img {
+      transition: transform 0.4s ease 0s;
+    }
+    &:hover {
+      img {
+        transform: scale(1.5);
+      }
+    }
   }
 
   // .footer__work
@@ -1134,6 +1166,12 @@ html {
   // .footer__stage
 
   &__stage {
+    transition: all 0.3s ease 0s;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 10px;
+      color: #e1b373;
+    }
   }
 
   // .footer__username
@@ -1144,6 +1182,12 @@ html {
   // .footer__github
 
   &__github {
+    transition: all 0.3s ease 0s;
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 10px;
+      color: #e1b373;
+    }
   }
 }
 
