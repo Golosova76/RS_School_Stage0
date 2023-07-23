@@ -804,6 +804,5 @@ html {
   letter-spacing: 2px;
 }
 .footer__course {
-  margin: auto;
-  margin-left: 494px;
+  padding-left: 115px;
 }

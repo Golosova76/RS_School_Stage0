@@ -1117,19 +1117,18 @@ html {
     padding-bottom: 4px;
     line-height: 1;
     letter-spacing: 2px;
-    //text-align: center;
   }
 
   // .footer__year
 
   &__year {
+    //margin-right: 494px;
   }
 
   // .footer__course
 
   &__course {
-    margin: auto;
-    margin-left: 494px;
+    padding-left: 115px;
   }
 
   // .footer__stage
