@@ -352,11 +352,16 @@ html {
     &:not(:last-child) {
       margin-bottom: 35px;
     }
+    height: 100%;
   }
 
-  // .slider-main-block__slide
+  // .slider-main-block__slide-ibg
 
-  &__slide {
+  &__slide-ibg {
+    flex: 0 1 32.14%;
+    //width: 450px;
+    //flex-shrink: 0;
+    padding-bottom: 40%;
   }
 
   // .slider-main-block__circles
@@ -439,8 +444,7 @@ html {
 
   &__nav {
     display: flex;
-    justify-content: flex-start;
-    column-gap: 90px;
+    column-gap: 60px;
     &:not(:last-child) {
       margin-bottom: 41px;
     }
@@ -474,13 +478,15 @@ html {
     margin-top: 5px;
     width: 17px;
     height: 17px;
-    margin-left: -40px;
+    margin-left: -42px;
     background-image: url(../img/favorites/nav/ellipse.svg);
   }
 
   // .tabs__text
 
   &__text {
+    display: block;
+    width: 100px;
   }
 
   // .tabs__body
@@ -1014,6 +1020,7 @@ html {
     background: #fff;
     height: 66px;
     width: 100%;
+    font-size: 24px;
     &:not(:last-child) {
       margin-bottom: 25px;
     }
@@ -1025,6 +1032,9 @@ html {
     }
     &:focus {
       outline: 2px solid #972727;
+      &::placeholder {
+        color: transparent;
+      }
     }
   }
 

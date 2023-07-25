@@ -328,9 +328,16 @@ html {
   -webkit-column-gap: 25px;
      -moz-column-gap: 25px;
           column-gap: 25px;
+  height: 100%;
 }
 .slider-main-block__wrapper:not(:last-child) {
   margin-bottom: 35px;
+}
+.slider-main-block__slide-ibg {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 32.14%;
+          flex: 0 1 32.14%;
+  padding-bottom: 40%;
 }
 .slider-main-block__circles {
   display: -webkit-box;
@@ -368,12 +375,9 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-column-gap: 90px;
-     -moz-column-gap: 90px;
-          column-gap: 90px;
+  -webkit-column-gap: 60px;
+     -moz-column-gap: 60px;
+          column-gap: 60px;
 }
 .tabs__nav:not(:last-child) {
   margin-bottom: 41px;
@@ -400,8 +404,12 @@ html {
   margin-top: 5px;
   width: 17px;
   height: 17px;
-  margin-left: -40px;
+  margin-left: -42px;
   background-image: url(../img/favorites/nav/ellipse.svg);
+}
+.tabs__text {
+  display: block;
+  width: 100px;
 }
 .item-tabs__items {
   display: -webkit-box;
@@ -724,6 +732,7 @@ html {
   background: #fff;
   height: 66px;
   width: 100%;
+  font-size: 24px;
 }
 .card__input:not(:last-child) {
   margin-bottom: 25px;
@@ -755,6 +764,21 @@ html {
 }
 .card__input:focus {
   outline: 2px solid #972727;
+}
+.card__input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.card__input:focus::-moz-placeholder {
+  color: transparent;
+}
+.card__input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+.card__input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.card__input:focus::placeholder {
+  color: transparent;
 }
 .card__button {
   display: inline-block;
