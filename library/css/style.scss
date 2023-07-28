@@ -43,6 +43,8 @@ html {
 }
 
 .wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
   background: $mainBackground;
   min-height: 100%;
   display: flex;
@@ -59,7 +61,7 @@ html {
 }
 
 [class*="__container"] {
-  max-width: 1440px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
+  max-width: 1450px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
   margin: 0px auto;
   padding: rem(20) rem(20) rem(40) rem(20);
   @media (max-width: 1199.98px) {
@@ -444,7 +446,7 @@ html {
 
   &__nav {
     display: flex;
-    column-gap: 60px;
+    column-gap: 42px;
     &:not(:last-child) {
       margin-bottom: 41px;
     }
@@ -453,9 +455,21 @@ html {
   // .tabs__label
 
   &__label {
-    padding-left: 38px;
+    padding-left: 48px;
     cursor: pointer;
     line-height: 1.2;
+    &:nth-child(1) {
+      margin-left: -8px;
+    }
+    &:nth-child(2) {
+      margin-left: 8px;
+    }
+    &:nth-child(3) {
+      margin-left: -5px;
+    }
+    &:nth-child(4) {
+      margin-left: 18px;
+    }
   }
 
   // .tabs__input
