@@ -257,12 +257,12 @@ html {
   .menu__body {
     position: absolute;
     z-index: 5;
-    top: 0;
+    top: 90px;
     right: 0;
     width: 332px;
     height: 100%;
     background-color: #0c0c0e;
-    padding: 100px 30px 470px 30px;
+    padding: 10px 30px 470px 30px;
     -webkit-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
     overflow: auto;
@@ -320,6 +320,7 @@ html {
 }
 .menu__icon {
   display: none;
+  background-color: transparent;
 }
 @media (max-width: 1024px) {
   .menu__icon {
@@ -519,6 +520,11 @@ html {
 .slider-main-block__circle.swiper-button-five {
   background: #0c0c0e;
 }
+@media (min-width: 1025px) {
+  .slider-main-block__circle:nth-child(n+4) {
+    display: none;
+  }
+}
 @media (max-width: 1024px) {
   .slider-main-block__navigation {
     position: absolute;
@@ -566,6 +572,20 @@ html {
 .tabs__nav:not(:last-child) {
   margin-bottom: 41px;
 }
+@media (max-width: 745px) {
+  .tabs__nav {
+    -webkit-column-gap: 22px;
+       -moz-column-gap: 22px;
+            column-gap: 22px;
+  }
+}
+@media (max-width: 645px) {
+  .tabs__nav {
+    -webkit-column-gap: 12px;
+       -moz-column-gap: 12px;
+            column-gap: 12px;
+  }
+}
 .tabs__label {
   padding-left: 48px;
   cursor: pointer;
@@ -582,6 +602,20 @@ html {
 }
 .tabs__label:nth-child(4) {
   margin-left: 18px;
+}
+@media (max-width: 745px) {
+  .tabs__label:nth-child(1) {
+    margin-left: 0;
+  }
+  .tabs__label:nth-child(2) {
+    margin-left: 0;
+  }
+  .tabs__label:nth-child(3) {
+    margin-left: 0;
+  }
+  .tabs__label:nth-child(4) {
+    margin-left: 0;
+  }
 }
 .tabs__input {
   position: absolute;
@@ -1182,11 +1216,15 @@ html {
   color: #e1b373;
 }
 .footer__github {
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: color 0.8s linear;
+  transition: color 0.8s linear;
 }
-.footer__github:hover {
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  color: #e1b373;
+@media (any-hover: hover) {
+  .footer__github:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    color: #e1b373;
+    -webkit-transition: color 0.3s linear;
+    transition: color 0.3s linear;
+  }
 }

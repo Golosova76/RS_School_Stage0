@@ -211,13 +211,14 @@ body {
     @media (max-width: 1024px) {
       position: absolute;
       z-index: 5;
-      top: 0;
+      top: 90px;
       right: 0;
       //right: -100%;
       width: 332px;
       height: 100%;
       background-color: #0c0c0e;
-      padding: 100px 30px 470px 30px;
+      //background-color: #b71a63;
+      padding: 10px 30px 470px 30px;
       transition: all 0.5s ease 0s;
       overflow: auto;
       transform: translate(100%, 0);
@@ -276,6 +277,7 @@ body {
 
   &__icon {
     display: none;
+    background-color: transparent;
     @media (max-width: 1024px) {
       position: relative;
       z-index: 5;
@@ -507,6 +509,11 @@ body {
     &.swiper-button-five {
       background: #0c0c0e;
     }
+    @media (min-width: 1025px) {
+      &:nth-child(n + 4) {
+        display: none;
+      }
+    }
   }
 
   // .slider-main-block__navigation
@@ -593,6 +600,12 @@ body {
     &:not(:last-child) {
       margin-bottom: 41px;
     }
+    @media (max-width: 745px) {
+      column-gap: 22px;
+    }
+    @media (max-width: 645px) {
+      column-gap: 12px;
+    }
   }
 
   // .tabs__label
@@ -612,6 +625,20 @@ body {
     }
     &:nth-child(4) {
       margin-left: 18px;
+    }
+    @media (max-width: 745px) {
+      &:nth-child(1) {
+        margin-left: 0;
+      }
+      &:nth-child(2) {
+        margin-left: 0;
+      }
+      &:nth-child(3) {
+        margin-left: 0;
+      }
+      &:nth-child(4) {
+        margin-left: 0;
+      }
     }
   }
 
@@ -1402,11 +1429,14 @@ body {
   // .footer__github
 
   &__github {
-    transition: all 0.3s ease 0s;
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 10px;
-      color: #e1b373;
+    transition: color 0.8s linear;
+    @media (any-hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 10px;
+        color: #e1b373;
+        transition: color 0.3s linear;
+      }
     }
   }
 }
