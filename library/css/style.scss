@@ -673,6 +673,10 @@ body {
     //column-gap: 220px;
     row-gap: 40px;
     //padding-right: 40px;
+    @media (max-width: 1270px) {
+      justify-content: center;
+      column-gap: 120px;
+    }
     @media (max-width: 1024px) {
       justify-content: center;
     }
@@ -824,6 +828,9 @@ body {
     text-align: center;
     line-height: 2;
     letter-spacing: 2px;
+    @media (min-width: 767px) and (max-width: 769px) {
+      width: 730px;
+    }
   }
 
   // .coffee__menu
@@ -834,7 +841,10 @@ body {
 
 .menu-coffee {
   display: flex;
-  //justify-content: space-between;
+  @media (max-width: 1120px) {
+    flex-direction: column;
+    row-gap: 40px;
+  }
 
   // .menu-coffee__drinks
 
