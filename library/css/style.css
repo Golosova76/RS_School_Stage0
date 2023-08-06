@@ -184,6 +184,11 @@ html {
   height: 1px;
   background-color: #0c0c0e;
 }
+@media (max-width: 769px) {
+  .header-main__title::after {
+    left: 46.2%;
+  }
+}
 
 .button {
   display: -webkit-box;
@@ -616,6 +621,13 @@ html {
       flex-wrap: wrap;
   row-gap: 40px;
 }
+@media (max-width: 1024px) {
+  .item-tabs__items {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 .item-tabs__item {
   position: relative;
   max-width: 550px;
@@ -685,6 +697,11 @@ html {
 }
 .item-tabs__text:not(:last-child) {
   margin-bottom: 16px;
+}
+@media (max-width: 769px) {
+  .item-tabs__text:not(:last-child) {
+    margin-bottom: 15px;
+  }
 }
 .item-tabs__button {
   max-width: 75px;

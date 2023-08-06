@@ -120,6 +120,9 @@ body {
       width: 50px;
       height: 1px;
       background-color: #0c0c0e;
+      @media (max-width: 769px) {
+        left: 46.2%;
+      }
     }
   }
 }
@@ -670,6 +673,9 @@ body {
     //column-gap: 220px;
     row-gap: 40px;
     //padding-right: 40px;
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
   }
 
   // .item-tabs__item
@@ -756,6 +762,11 @@ body {
   &__text {
     &:not(:last-child) {
       margin-bottom: 16px;
+    }
+    @media (max-width: 769px) {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
     max-width: 355px;
     min-height: 320px;
