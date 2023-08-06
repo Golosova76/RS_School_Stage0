@@ -42,6 +42,14 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  @media (max-width: 1024px) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
+}
+
 .wrapper {
   max-width: 1440px;
   margin: 0 auto;
@@ -61,7 +69,7 @@ html {
 }
 
 [class*="__container"] {
-  max-width: 1450px; // (сначала контейнер был 1440 как на макете, стал 1470 изза padding 30px - позже добавили)
+  max-width: 1440px;
   margin: 0px auto;
   padding: rem(20) rem(20) rem(40) rem(20);
   @media (max-width: 1199.98px) {
@@ -145,6 +153,7 @@ html {
 
 //============= header ===============//
 .header {
+  position: relative;
   background: #0c0c0e;
   // .header__container
 
@@ -182,26 +191,62 @@ html {
   // .header__image
 
   &__image {
+    @media (max-width: 1024px) {
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+      position: relative;
+      z-index: 5;
+    }
   }
 }
+
 .menu {
   // .menu__body
 
   &__body {
+    @media (max-width: 1024px) {
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      right: 0;
+      //right: -100%;
+      width: 332px;
+      height: 100%;
+      background-color: #0c0c0e;
+      padding: 100px 30px 470px 30px;
+      transition: all 0.5s ease 0s;
+      overflow: auto;
+      transform: translate(100%, 0);
+      &.menu-active {
+        //right: 0;
+        transform: translate(0, 0);
+      }
+    }
   }
 
   // .menu__list
 
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 30px;
+    text-align: center;
     line-height: 2.5;
+    @media (min-width: 1025px) {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+      line-height: 2.5;
+    }
   }
 
   // .menu__item
 
   &__item {
+    @media (max-width: 1024px) {
+      margin-bottom: 30px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   // .menu__link
@@ -209,9 +254,6 @@ html {
   &__link {
     position: relative;
     transition: all 0.3s ease 0s;
-    &:hover {
-      //text-decoration: underline;
-    }
     &::before {
       content: "";
       position: absolute;
@@ -230,9 +272,52 @@ html {
   // .menu__icon
 
   &__icon {
+    display: none;
+    @media (max-width: 1024px) {
+      position: relative;
+      z-index: 5;
+      display: block;
+      width: 45px;
+      height: 20px;
+      span,
+      &::before,
+      &::after {
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease 0s;
+        background-color: #fff;
+      }
+      &::before,
+      &::after {
+        content: "";
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+      span {
+        top: 50%;
+        transform: scale(1) translate(0px, -50%);
+      }
+      &.menu-active {
+        span {
+          transform: scale(0) translate(0px, -50%);
+        }
+        &::before {
+          top: 50%;
+          transform: rotate(-45deg) translate(0px, -50%);
+        }
+        &::after {
+          bottom: 50%;
+          transform: rotate(45deg) translate(0px, 50%);
+        }
+      }
+    }
   }
-}
-.icon-menu {
 }
 
 //============= header ===============//
@@ -315,13 +400,12 @@ html {
   // .about__container
 
   &__container {
-    padding-bottom: rem(35);
+    padding-bottom: 35px;
   }
 
   // .about__header
 
   &__header {
-    //padding: rem(20) rem(0) rem(0) rem(0);
     &:not(:last-child) {
       margin-bottom: 40px;
     }
@@ -344,26 +428,50 @@ html {
 }
 
 .slider-main-block {
-  overflow: hidden;
+  position: relative;
+  //overflow: hidden;
   // .slider-main-block__wrapper
 
   &__wrapper {
     display: flex;
-    flex-wrap: nowrap;
+    //flex-wrap: wrap;
     column-gap: 25px;
     &:not(:last-child) {
       margin-bottom: 35px;
     }
     height: 100%;
+    @media (max-width: 1024px) {
+      justify-content: center;
+    }
+    @media (max-width: 769px) {
+      &:not(:last-child) {
+        margin-bottom: 22px;
+      }
+    }
   }
 
   // .slider-main-block__slide-ibg
 
   &__slide-ibg {
     flex: 0 1 32.14%;
-    //width: 450px;
-    //flex-shrink: 0;
     padding-bottom: 40%;
+    &:nth-child(n + 4) {
+      display: none;
+    }
+    @media (max-width: 1024px) {
+      flex: 0 1 45.74%;
+      padding-bottom: 57%;
+      &:nth-child(n + 3) {
+        display: none;
+      }
+    }
+    @media (max-width: 769px) {
+      flex: 0 1 61.94%;
+      padding-bottom: 77%;
+      &:not(:first-child) {
+        display: none;
+      }
+    }
   }
 
   // .slider-main-block__circles
@@ -390,8 +498,26 @@ html {
     &.swiper-button-three {
       background: #0c0c0e;
     }
+    &.swiper-button-four {
+      background: #0c0c0e;
+    }
+    &.swiper-button-five {
+      background: #0c0c0e;
+    }
+  }
+
+  // .slider-main-block__navigation
+
+  &__navigation {
+    @media (max-width: 1024px) {
+      position: absolute;
+      top: 49%;
+      width: 24px;
+      height: 24px;
+    }
   }
 }
+
 .swiper {
 }
 .swiper-wrapper {
@@ -405,6 +531,20 @@ html {
 .swiper-button-three {
 }
 
+.swiper-button-prev {
+  @media (max-width: 769px) {
+    left: 58px;
+    background: url(../img/about/carret.svg) center no-repeat;
+    transform: translate(0%, -50%);
+  }
+}
+.swiper-button-next {
+  @media (max-width: 769px) {
+    right: 58px;
+    background: url(../img/about/carret.svg) center no-repeat;
+    transform: translate(0%, -50%) rotate(180deg);
+  }
+}
 //======== about =========//
 
 //====== favorites =======//
