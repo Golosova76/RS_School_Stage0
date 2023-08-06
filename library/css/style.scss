@@ -1090,12 +1090,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media (max-width: 1120px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      row-gap: 20px;
+    }
   }
 
   // .library-cards__forms
 
   &__forms {
     flex: 0 0 42.86%;
+    @media (max-width: 768px) {
+      max-width: 600px;
+    }
   }
 
   // .library-cards__account
@@ -1105,6 +1114,12 @@ body {
     text-align: right;
     > *:not(:last-child) {
       margin-bottom: 35px;
+    }
+    @media (max-width: 1120px) {
+      text-align: center;
+      > *:not(:last-child) {
+        margin-bottom: 40px;
+      }
     }
   }
 
@@ -1123,6 +1138,10 @@ body {
     text-align: right;
     line-height: 2;
     letter-spacing: 0.4px;
+    @media (max-width: 1120px) {
+      max-width: 600px;
+      text-align: center;
+    }
   }
 
   // .library-cards__buttons
@@ -1131,6 +1150,9 @@ body {
     display: flex;
     justify-content: flex-end;
     column-gap: 20px;
+    @media (max-width: 1120px) {
+      justify-content: center;
+    }
   }
 
   // .library-cards__button
@@ -1353,6 +1375,12 @@ body {
 
   &__course {
     padding-left: 115px;
+    @media (max-width: 992px) {
+      padding-left: 0;
+    }
+    @media (min-width: 767px) and (max-width: 769px) {
+      padding-left: 55px;
+    }
   }
 
   // .footer__stage

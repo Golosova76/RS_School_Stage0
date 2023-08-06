@@ -902,10 +902,30 @@ html {
       -ms-flex-align: start;
           align-items: flex-start;
 }
+@media (max-width: 1120px) {
+  .library-cards__body {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    row-gap: 20px;
+  }
+}
 .library-cards__forms {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 42.86%;
           flex: 0 0 42.86%;
+}
+@media (max-width: 768px) {
+  .library-cards__forms {
+    max-width: 600px;
+  }
 }
 .library-cards__account {
   padding-top: 4px;
@@ -913,6 +933,14 @@ html {
 }
 .library-cards__account > *:not(:last-child) {
   margin-bottom: 35px;
+}
+@media (max-width: 1120px) {
+  .library-cards__account {
+    text-align: center;
+  }
+  .library-cards__account > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
 .library-cards__get {
   font-size: 30px;
@@ -924,6 +952,12 @@ html {
   line-height: 2;
   letter-spacing: 0.4px;
 }
+@media (max-width: 1120px) {
+  .library-cards__text {
+    max-width: 600px;
+    text-align: center;
+  }
+}
 .library-cards__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -934,6 +968,13 @@ html {
   -webkit-column-gap: 20px;
      -moz-column-gap: 20px;
           column-gap: 20px;
+}
+@media (max-width: 1120px) {
+  .library-cards__buttons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 .library-cards__button {
   display: block;
@@ -1120,6 +1161,16 @@ html {
 }
 .footer__course {
   padding-left: 115px;
+}
+@media (max-width: 992px) {
+  .footer__course {
+    padding-left: 0;
+  }
+}
+@media (min-width: 767px) and (max-width: 769px) {
+  .footer__course {
+    padding-left: 55px;
+  }
 }
 .footer__stage {
   -webkit-transition: all 0.3s ease 0s;
