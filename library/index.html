@@ -15,11 +15,21 @@
           <div class="header__menu menu">
             <nav class="menu__body">
               <ul class="menu__list">
-                <li class="menu__item"><a class="menu__link" href="#about">About</a></li>
-                <li class="menu__item"><a class="menu__link" href="#favorites">Favorites</a></li>
-                <li class="menu__item"><a class="menu__link" href="#coffee">Coffee shop</a></li>
-                <li class="menu__item"><a class="menu__link" href="#contacts">Contacts</a></li>
-                <li class="menu__item"><a class="menu__link" href="#library-cards">Library Card</a></li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#" data-goto=".about">About</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#" data-goto=".favorites">Favorites</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" data-goto=".coffee">Coffee shop</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#" data-goto=".contacts">Contacts</a>
+                </li>
+                <li class="menu__item">
+                  <a class="menu__link" href="#" data-goto=".library-cards">Library Card</a>
+                </li>
               </ul>
             </nav>
           </div>
@@ -40,7 +50,10 @@
             </div>
           </div>
           <div class="welcome__image-ibg">
-            <img src="img/welcome/welcome.jpg" alt="Books" />
+            <picture>
+              <source srcset="img/welcome/welcome-768.jpg" media="(max-width: 1024px)" />
+              <img src="img/welcome/welcome.jpg" alt="Books" />
+            </picture>
           </div>
         </section>
         <section class="page__about about" id="about">
@@ -63,20 +76,23 @@
                 <div class="slider-main-block__slide-ibg swiper-slide">
                   <img src="img/about/books.jpg" alt="Slider Image Books" />
                 </div>
-                <!--
                 <div class="slider-main-block__slide-ibg swiper-slide">
                   <img src="img/about/ladder.jpg" alt="Slider Image Ladder" />
                 </div>
                 <div class="slider-main-block__slide-ibg swiper-slide">
                   <img src="img/about/pillar.jpg" alt="Slider Image Pillar" />
                 </div>
-                -->
               </div>
               <!-- If we need navigation buttons -->
+              <div class="slider-main-block__navigation swiper-button-prev"></div>
+              <div class="slider-main-block__navigation swiper-button-next"></div>
+              <!-- If we need pagination -->
               <div class="slider-main-block__circles">
                 <div class="slider-main-block__circle swiper-button-one"></div>
                 <div class="slider-main-block__circle swiper-button-two"></div>
                 <div class="slider-main-block__circle swiper-button-three"></div>
+                <div class="slider-main-block__circle swiper-button-four"></div>
+                <div class="slider-main-block__circle swiper-button-five"></div>
               </div>
             </div>
           </div>
@@ -435,7 +451,7 @@
             </div>
           </div>
         </section>
-        <section class="page__contacts contacts" id="contacts">
+        <section class="page__contacts contacts">
           <div class="contacts__container">
             <div class="contacts__header header-main">
               <h2 class="header-main__title">Our Contacts</h2>
