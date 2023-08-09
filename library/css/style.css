@@ -304,9 +304,6 @@ html {
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
 }
-.menu-active .menu__link {
-  padding-left: 15px;
-}
 .menu__link::before {
   content: "";
   position: absolute;
