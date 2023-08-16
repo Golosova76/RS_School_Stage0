@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
         const gotoBlock = document.querySelector(menuLink.dataset.goto);
         
         const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;      
-  /*
-        if (iconMenu.classList.contains('active')) {
+  
+        if (iconMenu.classList.contains('menu-active')) {
           document.body.classList.remove('lock');
-          iconMenu.classList.remove('active');
-          menuBody.classList.remove('active');
+          iconMenu.classList.remove('menu-active');
+          menuBody.classList.remove('menu-active');
         }
-  */
+
         //кусок кода кот и заставит скролл прокрутится к нужному месту
         window.scrollTo({
           //прокручиваем сверху и до const gotoBlockValue
