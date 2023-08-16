@@ -30,7 +30,7 @@
 
 $fontFamily: "Inter", sans-serif;
 $fontWeight: 400;
-$fontSize: rem(20);
+$fontSize: toRem(20);
 $mainColor: #000000;
 $mainBackground: #fff;
 
@@ -71,7 +71,7 @@ body {
 [class*="__container"] {
   max-width: 1440px;
   margin: 0px auto;
-  padding: rem(20) rem(20) rem(40) rem(20);
+  padding: toRem(20) toRem(20) toRem(40) toRem(20);
   @media (max-width: 1199.98px) {
     //max-width: 970px;
   }
@@ -100,7 +100,7 @@ body {
 
 .header-main {
   position: relative;
-  padding: rem(0) rem(0) rem(20) rem(0);
+  padding: toRem(0) toRem(0) toRem(20) toRem(0);
   text-align: center;
   // .header-main__title
 
@@ -188,7 +188,7 @@ body {
   &__menu {
     margin-left: auto;
     &:not(:last-child) {
-      margin-right: rem(40);
+      margin-right: toRem(40);
     }
   }
 
@@ -1069,6 +1069,13 @@ body {
     }
     @media (max-width: 1120px) {
       flex: 1 1 auto;
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    @media (max-width: 715px) {
+      flex: 1 1 auto;
+      padding-left: 0px;
+      padding-right: 0px;
     }
   }
 }
@@ -1212,7 +1219,7 @@ body {
   &__form {
     border: 3px solid #bb945f;
     background: #fff;
-    padding: rem(17) rem(20) rem(27) rem(20);
+    padding: toRem(17) toRem(20) toRem(27) toRem(20);
     text-align: center;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
@@ -1220,10 +1227,10 @@ body {
   // .card__column
 
   &__column {
-    padding: rem(20) rem(20) rem(25) rem(20);
+    padding: toRem(20) toRem(20) toRem(25) toRem(20);
     background-color: #bb945f;
     &:not(:last-child) {
-      margin-bottom: rem(20);
+      margin-bottom: toRem(20);
     }
   }
 
