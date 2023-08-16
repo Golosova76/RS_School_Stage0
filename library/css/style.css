@@ -909,6 +909,17 @@ html {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 715px) {
+  .contacts__map {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
