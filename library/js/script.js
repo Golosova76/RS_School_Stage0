@@ -60,4 +60,96 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   }
+
+  //Slider
+
+  //переменные 
+  const wrapper = document.querySelector('.slider-main-block__wrapper');
+  const slides = wrapper.querySelectorAll('.swiper-slide');
+  const slideWidthWithGap = slides[0].offsetWidth + 25;
+  const paginationButtons = document.querySelectorAll('.slider-main-block__circle');
+  const prevButton = document.querySelector('.swiper-button-prev');
+  const nextButton = document.querySelector('.swiper-button-next');
+  let currentSlide = 0;
+  let isAnimating = false;
+
+  //функции
+
+  //расчет значения смещения на основе индекса
+  function getSlideOffset(index) {
+    return -(index * slideWidthWithGap);
+  }
+
+  //основная для движения слайдера
+  function moveSliderToSlide(slideIndex) {
+    if (isAnimating) return;
+
+    const offset = getSlideOffset(slideIndex);
+    wrapper.style.transform = `translateX(${offset}px)`;
+
+    currentSlide = slideIndex;
+    updateControls();
+  }
+
+  //движение стрелок
+  function moveNext() {
+    if (currentSlide < slides.length - 1) {
+      moveSliderToSlide(currentSlide + 1);
+    }
+  }
+
+  function movePrev() {
+    if (currentSlide > 0) {
+      moveSliderToSlide(currentSlide - 1);
+    }
+  }
+
+  //обработчики событий
+  paginationButtons.forEach((button, index) => {
+    button.addEventListener('click', () => moveSliderToSlide(index));
+  });
+
+  nextButton.addEventListener('click', moveNext);
+  prevButton.addEventListener('click', movePrev);
+
+  //функция обновления кружков пагинации и стрелок
+  function updateControls() {
+    paginationButtons.forEach((button, index) => {
+      if (index === currentSlide) {
+        button.classList.add('slide-active');
+      } else {
+        button.classList.remove('slide-active');
+      }
+
+      if (window.innerWidth >= 1440 && index > 2) {
+        button.setAttribute('disabled', true)
+      } else if (index === currentSlide) {
+        button.setAttribute('disabled', true)
+      } else {
+        button.removeAttribute('disabled')
+      }
+    });
+
+    if (currentSlide === 0) {
+      prevButton.classList.add('disabled');
+    } else {
+      prevButton.classList.remove('disabled');
+    }
+  
+    if (currentSlide === slides.length - 1) {
+      nextButton.classList.add('disabled');
+    } else {
+      nextButton.classList.remove('disabled');
+    }
+  }
+
+  wrapper.addEventListener('transitionstart', () => {
+    isAnimating = true;
+  });
+
+  wrapper.addEventListener('transitionend', () => {
+    isAnimating = false;
+  });
+
+  //НЕ ТРОГАТЬ======///// 
 });

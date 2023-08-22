@@ -402,11 +402,14 @@ body {
   &__about {
   }
 }
+
 .about {
   // .about__container
 
   &__container {
     padding-bottom: 35px;
+    position: relative;
+    z-index: 5;
   }
 
   // .about__header
@@ -434,20 +437,36 @@ body {
 }
 
 .slider-main-block {
-  position: relative;
-  //overflow: hidden;
+  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  @media (max-width: 1439px) {
+    max-width: 925px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1150px) {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  @media (max-width: 480px) {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
   // .slider-main-block__wrapper
 
   &__wrapper {
     display: flex;
-    //flex-wrap: wrap;
     column-gap: 25px;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
     &:not(:last-child) {
       margin-bottom: 35px;
-    }
-    height: 100%;
-    @media (max-width: 1024px) {
-      justify-content: center;
     }
     @media (max-width: 769px) {
       &:not(:last-child) {
@@ -459,24 +478,21 @@ body {
   // .slider-main-block__slide-ibg
 
   &__slide-ibg {
-    flex: 0 1 32.14%;
+    flex: 0 0 450px;
     padding-bottom: 40%;
-    &:nth-child(n + 4) {
-      display: none;
+    @media (max-width: 1439px) {
+      padding-bottom: 60.55%;
     }
-    @media (max-width: 1024px) {
-      flex: 0 1 45.74%;
-      padding-bottom: 57%;
-      &:nth-child(n + 3) {
-        display: none;
-      }
+    @media (max-width: 1150px) {
+      padding-bottom: 124.55%;
     }
-    @media (max-width: 769px) {
-      flex: 0 1 61.94%;
-      padding-bottom: 77%;
-      &:not(:first-child) {
-        display: none;
-      }
+    @media (max-width: 640px) {
+      flex: 0 0 300px;
+      padding-bottom: 133%;
+    }
+    @media (max-width: 480px) {
+      flex: 0 0 200px;
+      padding-bottom: 153%;
     }
   }
 
@@ -494,23 +510,24 @@ body {
     height: 26px;
     border-radius: 50px;
     border: 5px solid #fff;
+    background-color: #0c0c0e;
     cursor: pointer;
-    &.swiper-button-one {
-      background: #bb945f;
+    &.slide-active {
+      background-color: #bb945f;
+      cursor: not-allowed;
+      //pointer-events: none;
     }
-    &.swiper-button-two {
-      background: #0c0c0e;
+    @media (max-width: 1149px) {
+      &:nth-child(n + 6) {
+        display: none;
+      }
     }
-    &.swiper-button-three {
-      background: #0c0c0e;
+    @media (min-width: 1151px) {
+      &:nth-child(n + 5) {
+        display: none;
+      }
     }
-    &.swiper-button-four {
-      background: #0c0c0e;
-    }
-    &.swiper-button-five {
-      background: #0c0c0e;
-    }
-    @media (min-width: 1025px) {
+    @media (min-width: 1440px) {
       &:nth-child(n + 4) {
         display: none;
       }
@@ -520,40 +537,73 @@ body {
   // .slider-main-block__navigation
 
   &__navigation {
-    @media (max-width: 1024px) {
+    @media (max-width: 1439px) {
       position: absolute;
-      top: 49%;
+      top: 60%;
       width: 24px;
       height: 24px;
+    }
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 }
 
-.swiper {
-}
-.swiper-wrapper {
-}
-.swiper-slide {
-}
-.swiper-button-one {
-}
-.swiper-button-two {
-}
-.swiper-button-three {
-}
-
 .swiper-button-prev {
-  @media (max-width: 769px) {
-    left: 58px;
+  @media (max-width: 1439px) {
+    left: 100px;
     background: url(../img/about/carret.svg) center no-repeat;
     transform: translate(0%, -50%);
   }
+  @media (max-width: 1250px) {
+    left: 60px;
+  }
+  @media (max-width: 1150px) {
+    left: 156px;
+  }
+  @media (max-width: 880px) {
+    left: 100px;
+  }
+  @media (max-width: 769px) {
+    left: 80px;
+  }
+  @media (max-width: 739px) {
+    left: 36px;
+  }
+  @media (max-width: 500px) {
+    left: 20px;
+  }
+  @media (max-width: 390px) {
+    left: 5px;
+  }
 }
 .swiper-button-next {
-  @media (max-width: 769px) {
-    right: 58px;
+  @media (max-width: 1439px) {
+    right: 100px;
     background: url(../img/about/carret.svg) center no-repeat;
     transform: translate(0%, -50%) rotate(180deg);
+  }
+  @media (max-width: 1250px) {
+    right: 60px;
+  }
+  @media (max-width: 1150px) {
+    right: 156px;
+  }
+  @media (max-width: 880px) {
+    right: 100px;
+  }
+  @media (max-width: 769px) {
+    right: 80px;
+  }
+  @media (max-width: 739px) {
+    right: 36px;
+  }
+  @media (max-width: 500px) {
+    right: 20px;
+  }
+  @media (max-width: 390px) {
+    right: 5px;
   }
 }
 //======== about =========//
