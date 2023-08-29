@@ -151,5 +151,55 @@ document.addEventListener("DOMContentLoaded", function() {
     isAnimating = false;
   });
 
+  //Tabs
+
+  const tabButtons = document.querySelectorAll('.tabs__label');
+  const tabItems = document.querySelectorAll('.item-tabs');
+
+  document.addEventListener('click', (e) => {
+    const targetElement = e.target.closest('.tabs__label');
+    let currentActiveIndex = null;
+    let newActiveIndex = null;
+
+    if (targetElement) {
+      if (targetElement.classList.contains('tab-active')) {
+        return;
+      }
+      
+      tabButtons.forEach((tabButton, index) => {
+        if (tabButton.classList.contains('tab-active')) {
+          currentActiveIndex = index;
+          tabButton.classList.remove('tab-active');
+        }
+        if (tabButton === targetElement) {
+          newActiveIndex = index;
+        }
+      });
+
+      const currentActiveTab = tabItems[currentActiveIndex];
+      const nextActiveTab = tabItems[newActiveIndex];
+
+      if (currentActiveIndex !== null) {
+        currentActiveTab.style.opacity = '0';  // Инициируем затухание текущей вкладки
+        setTimeout(() => {
+          currentActiveTab.style.visibility = 'hidden';
+          currentActiveTab.classList.remove('tab-active'); // Удаляем класс у текущей вкладки
+          
+          nextActiveTab.style.visibility = 'visible';
+          nextActiveTab.style.opacity = '1';  // Инициируем появление следующей вкладки
+          nextActiveTab.classList.add('tab-active');  // Добавляем класс к следующей вкладке
+        }, 1000);  // Задержка равна времени анимации, установленной в CSS (1s)
+      } else {
+        nextActiveTab.style.visibility = 'visible';
+        nextActiveTab.style.opacity = '1';  // Просто инициируем появление, если нет текущей активной вкладки
+        nextActiveTab.classList.add('tab-active');  // Добавляем класс к следующей вкладке
+      }
+
+      targetElement.classList.add('tab-active');
+    }
+  });
+
+  document.querySelector('.tabs__label').click();  
+
   //НЕ ТРОГАТЬ======///// 
 });

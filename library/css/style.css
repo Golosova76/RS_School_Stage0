@@ -134,7 +134,7 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .wrapper > main {
   -webkit-box-flex: 1;
@@ -209,12 +209,6 @@ html {
   background-color: #bb945f;
   border: 1px solid #bb945f;
 }
-.button_own {
-  color: #bb945f;
-  border: 1px solid #bb945f;
-  pointer-events: none;
-}
-
 .header {
   position: relative;
   background-color: #0c0c0e;
@@ -655,6 +649,9 @@ html {
   }
 }
 
+.favorites__container {
+  position: relative;
+}
 .favorites__container > *:not(:last-child) {
   margin-bottom: 40px;
 }
@@ -672,6 +669,17 @@ html {
 }
 .tabs__nav:not(:last-child) {
   margin-bottom: 41px;
+}
+@media (max-width: 1270px) {
+  .tabs__nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #fff;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 @media (max-width: 745px) {
   .tabs__nav {
@@ -741,6 +749,24 @@ html {
 .tabs__text {
   display: block;
   width: 100px;
+}
+.tabs__body {
+  position: relative;
+}
+.item-tabs {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  -webkit-transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.item-tabs.tab-active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
 }
 .item-tabs__items {
   display: -webkit-box;
