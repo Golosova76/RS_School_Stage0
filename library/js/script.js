@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function() {
   //переменные 
   const wrapper = document.querySelector('.slider-main-block__wrapper');
   const slides = wrapper.querySelectorAll('.swiper-slide');
-  const slideWidthWithGap = slides[0].offsetWidth + 25;
+  let slideWidthWithGap = slides[0].offsetWidth + 25;
   const paginationButtons = document.querySelectorAll('.slider-main-block__circle');
   const prevButton = document.querySelector('.swiper-button-prev');
   const nextButton = document.querySelector('.swiper-button-next');
@@ -150,6 +150,19 @@ document.addEventListener("DOMContentLoaded", function() {
   wrapper.addEventListener('transitionend', () => {
     isAnimating = false;
   });
+
+  window.addEventListener('resize', () => {
+    // Обновляем значение ширины слайда с учетом отступа, т.к. при изменении размера окна ширина слайдов может измениться
+    slideWidthWithGap = slides[0].offsetWidth + 25;
+
+    // Обновляем позицию слайдера для текущего активного слайда
+    const offset = getSlideOffset(currentSlide);
+    wrapper.style.transform = `translateX(${offset}px)`;
+
+    // Обновляем контролы (кружки пагинации и стрелки)
+    updateControls();
+  });
+
 
   //Tabs
 
