@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //Slider
 
-  //переменные 
   const wrapper = document.querySelector('.slider-main-block__wrapper');
   const slides = wrapper.querySelectorAll('.swiper-slide');
   let slideWidthWithGap = slides[0].offsetWidth + 25;
@@ -212,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  document.querySelector('.tabs__label').click();  
+  //document.querySelector('.tabs__label').click();  
 
   //НЕ ТРОГАТЬ======///// 
 });
