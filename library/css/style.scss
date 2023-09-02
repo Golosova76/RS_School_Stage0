@@ -35,6 +35,7 @@ $mainColor: #000000;
 $mainBackground: #fff;
 
 @import "_null";
+@import "_modals";
 
 //============= Общие стили ===============//
 
@@ -192,18 +193,6 @@ body {
       margin-right: toRem(40);
     }
   }
-
-  // .header__image
-
-  &__image {
-    @media (max-width: 1024px) {
-      &:not(:last-child) {
-        margin-right: 40px;
-      }
-      position: relative;
-      z-index: 5;
-    }
-  }
 }
 
 .menu {
@@ -286,6 +275,7 @@ body {
       display: block;
       width: 45px;
       height: 20px;
+      margin-left: 40px;
       span,
       &::before,
       &::after {
@@ -327,6 +317,125 @@ body {
   }
 }
 
+.header {
+  // .header__profile
+
+  &__profile {
+    position: relative;
+  }
+}
+
+.profile-header {
+  // .profile-header__image
+
+  &__image {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 0.5;
+    }
+    @media (max-width: 1024px) {
+      position: relative;
+      z-index: 5;
+    }
+  }
+
+  // .profile-header__account
+
+  &__account {
+    position: absolute;
+    top: 29px;
+    right: 0;
+    z-index: 5;
+  }
+}
+
+.account {
+  perspective: 600px;
+  opacity: 0;
+  visibility: hidden;
+  width: 80px;
+  height: 115px;
+  color: #000;
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: center;
+  transition: all 1s ease 0s;
+  &.profile-active {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s ease 0s;
+    .account__front {
+      transform: rotateY(0deg);
+    }
+    .account__back {
+      transform: rotateY(-180deg);
+    }
+  }
+
+  // .account__front
+
+  &__front {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(-180deg);
+    background-color: #fff;
+    backface-visibility: hidden;
+    transition: all 1s ease 0s;
+  }
+
+  // .account__title
+
+  &__title {
+    position: relative;
+    font-weight: 700;
+    line-height: 133.333%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      width: 40px;
+      height: 1px;
+      background-color: #bb945f;
+    }
+  }
+
+  // .account__log-in
+
+  &__log-in {
+    display: inline-block;
+    margin-bottom: 10px;
+    line-height: 133.333%;
+  }
+
+  // .account__register
+
+  &__register {
+    display: inline-block;
+    line-height: 133.333%;
+  }
+
+  // .account__back
+
+  &__back {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    background-color: #fff;
+    transition: all 1s ease 0s;
+  }
+}
 //============= header ===============//
 
 //============= welcome ===============//

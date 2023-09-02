@@ -32,7 +32,7 @@
 .card__input::-ms-input-placeholder {
   font-family: "Forum";
 }
-.card__input::placeholder, .card__title, .library-cards__get, .menu-coffee__price, .menu-coffee__title, .item-tabs__subtitle, .welcome__title, .header__title, .header-main__title {
+.card__input::placeholder, .card__title, .library-cards__get, .menu-coffee__price, .menu-coffee__title, .item-tabs__subtitle, .welcome__title, .header__title, .header-main__title, .header-modal__title {
   font-family: "Forum";
 }
 
@@ -110,6 +110,430 @@ body {
   font-size: 1.25rem;
   font-weight: 400;
   background: rgba(218, 213, 213, 0.258);
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-login__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 25px;
+  min-height: 100%;
+}
+.modal-login__content {
+  max-width: 250px;
+  background-color: #fff;
+  padding: 20px 25px;
+}
+.modal-login__header:not(:last-child) {
+  margin-bottom: 20px;
+}
+.modal-login__text {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-size: 10px;
+  line-height: 1.1;
+}
+.modal-login__link {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #000;
+}
+
+.header-modal {
+  position: relative;
+}
+.header-modal__title {
+  line-height: 100%;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.header-modal__button {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+.form-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+.form-login__label {
+  display: block;
+}
+.form-login__span {
+  display: block;
+  font-size: 15px;
+  line-height: 133.333%;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+.form-login__input {
+  border: 1px solid #bb945f;
+  height: 20px;
+  width: 100%;
+}
+.form-login__button {
+  -ms-flex-item-align: start;
+      align-self: start;
+  text-transform: capitalize;
+  padding: 8px 19px;
+  margin-bottom: 2px;
+  margin-top: 10px;
+}
+
+.modal-register__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 25px;
+  min-height: 100%;
+}
+.modal-register__content {
+  max-width: 250px;
+  background-color: #fff;
+  padding: 20px 25px;
+}
+.modal-register__header:not(:last-child) {
+  margin-bottom: 20px;
+}
+.modal-register__text {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-size: 10px;
+  line-height: 1.1;
+}
+.modal-register__link {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #000;
+}
+
+.form-login__button_big {
+  padding: 8px 14px;
+}
+
+.modal-profile__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 25px;
+  min-height: 100%;
+}
+.modal-profile__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 600px;
+  background-color: #fff;
+}
+.modal-profile__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #0c0c0e;
+  max-width: 170px;
+  padding: 138px 25px;
+}
+.modal-profile__initials {
+  background-color: #fff;
+  color: #bb945f;
+  text-align: center;
+  padding: 30px 27px;
+  text-transform: capitalize;
+  line-height: 100%;
+  margin-bottom: 15px;
+}
+.modal-profile__name {
+  padding: 5px 15px;
+  background-color: #fff;
+  color: #000;
+  text-transform: capitalize;
+  line-height: 100%;
+}
+.modal-profile__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 430px;
+  padding: 17px 20px 37px 20px;
+}
+
+.profile-stats__header {
+  margin-bottom: 35px;
+}
+.profile-stats__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 19px;
+  gap: 20px;
+}
+.profile-stats__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+.profile-stats__item img {
+  width: 20px;
+  height: 21px;
+}
+.profile-stats__title {
+  line-height: 100%;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+}
+.profile-stats__count {
+  font-size: 10px;
+  line-height: 200%;
+  letter-spacing: 0.2px;
+}
+.profile-stats__rented {
+  margin-bottom: 41px;
+}
+.header-modal__title_profile {
+  color: #000;
+  font-size: 40px;
+  line-height: 50%;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-align: left;
+  padding-top: 30px;
+}
+.header-modal__button_profile {
+  top: 15px;
+  right: -35px;
+}
+
+.rented__title {
+  font-size: 25px;
+  line-height: 80%;
+  margin-bottom: 30px;
+}
+.rented__list {
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  padding-left: 30px;
+}
+.rented__item {
+  position: relative;
+}
+.rented__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.rented__item::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #000;
+}
+
+.copy-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+.copy-number__card {
+  color: #bb945f;
+}
+.copy-number__buttom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.copy-number__buttom svg {
+  width: 13px;
+  height: 12px;
+}
+
+.modal-card__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 25px;
+  min-height: 100%;
+}
+.modal-card__content {
+  max-width: 650px;
+  background-color: #fff;
+}
+.modal-card__header {
+  background-color: #0c0c0e;
+  min-height: 60px;
+}
+.modal-card__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px 40px 40px;
+  gap: 40px;
+}
+.modal-card__forms {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 200px;
+          flex: 0 1 200px;
+}
+.modal-card__text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 330px;
+          flex: 0 1 330px;
+  font-size: 15px;
+  line-height: 133.333%;
+  letter-spacing: 2px;
+  color: #8e8e8e;
+}
+
+.header-modal__title_card {
+  padding: 20px;
+  font-size: 40px;
+  line-height: 50%;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+.header-modal__button_card {
+  top: 23px;
+  right: 19px;
+}
+
+.form-login__span_single {
+  margin-bottom: 0;
+}
+.form-login__input_cvc {
+  width: 45px;
+  margin-bottom: 10px;
+}
+.form-login__two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+.form-login__two .form-login__input {
+  width: 45px;
+  height: 20px;
+}
+.form-login__buy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+.form-login__button_buy {
+  padding: 8px 26px;
+}
+.form-login__price {
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 html {
@@ -237,15 +661,6 @@ html {
 .header__menu:not(:last-child) {
   margin-right: 2.5rem;
 }
-@media (max-width: 1024px) {
-  .header__image {
-    position: relative;
-    z-index: 5;
-  }
-  .header__image:not(:last-child) {
-    margin-right: 40px;
-  }
-}
 
 @media (max-width: 1024px) {
   .menu__body {
@@ -323,6 +738,7 @@ html {
     display: block;
     width: 45px;
     height: 20px;
+    margin-left: 40px;
   }
   .menu__icon span, .menu__icon::before, .menu__icon::after {
     left: 0;
@@ -365,6 +781,114 @@ html {
         -ms-transform: rotate(45deg) translate(0px, 50%);
             transform: rotate(45deg) translate(0px, 50%);
   }
+}
+
+.header__profile {
+  position: relative;
+}
+
+.profile-header__image {
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+.profile-header__image:hover {
+  opacity: 0.5;
+}
+@media (max-width: 1024px) {
+  .profile-header__image {
+    position: relative;
+    z-index: 5;
+  }
+}
+.profile-header__account {
+  position: absolute;
+  top: 29px;
+  right: 0;
+  z-index: 5;
+}
+
+.account {
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  opacity: 0;
+  visibility: hidden;
+  width: 80px;
+  height: 115px;
+  color: #000;
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: center;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+.account.profile-active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+.account.profile-active .account__front {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+.account.profile-active .account__back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.account__front {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  background-color: #fff;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
+}
+.account__title {
+  position: relative;
+  font-weight: 700;
+  line-height: 133.333%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.account__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 40px;
+  height: 1px;
+  background-color: #bb945f;
+}
+.account__log-in {
+  display: inline-block;
+  margin-bottom: 10px;
+  line-height: 133.333%;
+}
+.account__register {
+  display: inline-block;
+  line-height: 133.333%;
+}
+.account__back {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  background-color: #fff;
+  -webkit-transition: all 1s ease 0s;
+  transition: all 1s ease 0s;
 }
 
 .page__welcome {
