@@ -14,7 +14,7 @@
           <div class="modal-login__content">
             <div class="modal-login__header header-modal">
               <div class="header-modal__title">Login</div>
-              <button class="header-modal__button">
+              <button class="header-modal__button popup-close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                   <path d="M2 16.8506L17 1.99987" stroke="#0C0C0E" stroke-width="3" />
                   <path d="M2 2.14941L17 17.0001" stroke="#0C0C0E" stroke-width="3" />
@@ -28,13 +28,13 @@
               </label>
               <label class="form-login__label">
                 <span class="form-login__span">Password</span>
-                <input class="form-login__input" type="password" required />
+                <input class="form-login__input" type="password" minlength="8" required />
               </label>
               <button class="form-login__button button" type="submit">Log In</button>
             </form>
             <div class="modal-login__choice">
               <span class="modal-login__text">Don’t have an account?</span>
-              <a href="#" class="modal-login__link">Register</a>
+              <button href="#" class="modal-login__link register">Register</button>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="modal-register__content">
             <div class="modal-register__header header-modal">
               <div class="header-modal__title">Register</div>
-              <button class="header-modal__button">
+              <button class="header-modal__button popup-close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
                   <path d="M2 16.8506L17 1.99987" stroke="#0C0C0E" stroke-width="3" />
                   <path d="M2 2.14941L17 17.0001" stroke="#0C0C0E" stroke-width="3" />
@@ -66,13 +66,13 @@
               </label>
               <label class="form-login__label">
                 <span class="form-login__span">Password</span>
-                <input class="form-login__input" type="password" required />
+                <input class="form-login__input" type="password" minlength="8" required />
               </label>
               <button class="form-login__button button form-login__button_big" type="submit">Sign Up</button>
             </form>
             <div class="modal-register__choice">
               <span class="modal-register__text">Already have an account?</span>
-              <a href="#" class="modal-register__link">Login</a>
+              <button href="#" class="modal-register__link login">Login</button>
             </div>
           </div>
         </div>
@@ -218,8 +218,8 @@
             <div class="profile-header__account account">
               <div class="account__front">
                 <div class="account__title">Profile</div>
-                <button class="account__log-in" type="button">Log In</button>
-                <button class="account__register" type="button">Register</button>
+                <button class="account__log-in login" type="button">Log In</button>
+                <button class="account__register register" type="button">Register</button>
               </div>
               <div class="account__back"></div>
             </div>
@@ -684,8 +684,8 @@
                 <div class="library-cards__get">Get a reader card</div>
                 <div class="library-cards__text">You will be able to see a reader card after logging into account or you can register a new account</div>
                 <div class="library-cards__buttons">
-                  <button class="library-cards__button button" type="button">Sign Up</button>
-                  <button class="library-cards__button button" type="button">Log in</button>
+                  <button class="library-cards__button button register" type="button">Sign Up</button>
+                  <button class="library-cards__button button login" type="button">Log in</button>
                 </div>
               </div>
             </div>
@@ -739,5 +739,7 @@
       </footer>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/dropMenu.js"></script>
+    <script src="js/popup.js"></script>
   </body>
 </html>

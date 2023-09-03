@@ -5,9 +5,23 @@
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 50;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   visibility: hidden;
+  transition: all 0.8s ease 0s;
+  &.popup-open {
+    opacity: 1;
+    visibility: visible;
+    .modal-login__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+    .modal-register__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+  }
 }
 .modal-login {
   // .modal-login__body
@@ -19,6 +33,7 @@
     justify-content: center;
     padding: 20px 25px;
     min-height: 100%;
+    transition: all 0.8s ease 0s;
   }
 
   // .modal-login__content
@@ -27,6 +42,9 @@
     max-width: 250px;
     background-color: #fff;
     padding: 20px 25px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
   }
 
   // .modal-login__header
@@ -143,6 +161,7 @@
     justify-content: center;
     padding: 20px 25px;
     min-height: 100%;
+    transition: all 0.8s ease 0s;
   }
 
   // .modal-register__content
@@ -151,6 +170,9 @@
     max-width: 250px;
     background-color: #fff;
     padding: 20px 25px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
   }
 
   // .modal-register__header
@@ -217,6 +239,14 @@
   // .form-login__input
 
   &__input {
+    @extend %forum;
+    font-size: 14px;
+    line-height: 1.67;
+    letter-spacing: 0.6px;
+    padding: 2px 5px;
+    &:focus {
+      outline: 2px solid #972727;
+    }
   }
 
   // .form-login__button
@@ -474,7 +504,7 @@
   // .modal-card__content
 
   &__content {
-    max-width: 650px;
+    max-width: 640px;
     background-color: #fff;
   }
 
@@ -489,7 +519,7 @@
 
   &__column {
     display: flex;
-    padding: 30px 40px 40px;
+    padding: 30px 35px 40px;
     gap: 40px;
   }
 

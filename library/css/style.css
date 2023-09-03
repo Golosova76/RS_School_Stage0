@@ -32,7 +32,7 @@
 .card__input::-ms-input-placeholder {
   font-family: "Forum";
 }
-.card__input::placeholder, .card__title, .library-cards__get, .menu-coffee__price, .menu-coffee__title, .item-tabs__subtitle, .welcome__title, .header__title, .header-main__title, .header-modal__title {
+.card__input::placeholder, .card__title, .library-cards__get, .menu-coffee__price, .menu-coffee__title, .item-tabs__subtitle, .welcome__title, .header__title, .header-main__title, .form-login__input, .header-modal__title {
   font-family: "Forum";
 }
 
@@ -118,9 +118,26 @@ body {
   height: 100%;
   top: 0;
   left: 0;
+  z-index: 50;
   background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   visibility: hidden;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.modal.popup-open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal.popup-open .modal-login__content {
+  opacity: 1;
+  -webkit-transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+          transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+}
+.modal.popup-open .modal-register__content {
+  opacity: 1;
+  -webkit-transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+          transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
 }
 
 .modal-login__body {
@@ -139,11 +156,18 @@ body {
           justify-content: center;
   padding: 20px 25px;
   min-height: 100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 .modal-login__content {
   max-width: 250px;
   background-color: #fff;
   padding: 20px 25px;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  opacity: 0;
+  -webkit-transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+          transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 }
 .modal-login__header:not(:last-child) {
   margin-bottom: 20px;
@@ -227,11 +251,18 @@ body {
           justify-content: center;
   padding: 20px 25px;
   min-height: 100%;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
 }
 .modal-register__content {
   max-width: 250px;
   background-color: #fff;
   padding: 20px 25px;
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+  opacity: 0;
+  -webkit-transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+          transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 }
 .modal-register__header:not(:last-child) {
   margin-bottom: 20px;
@@ -250,6 +281,15 @@ body {
   border-bottom: 1px solid #000;
 }
 
+.form-login__input {
+  font-size: 14px;
+  line-height: 1.67;
+  letter-spacing: 0.6px;
+  padding: 2px 5px;
+}
+.form-login__input:focus {
+  outline: 2px solid #972727;
+}
 .form-login__button_big {
   padding: 8px 14px;
 }
@@ -457,7 +497,7 @@ body {
   min-height: 100%;
 }
 .modal-card__content {
-  max-width: 650px;
+  max-width: 640px;
   background-color: #fff;
 }
 .modal-card__header {
@@ -468,7 +508,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 30px 40px 40px;
+  padding: 30px 35px 40px;
   gap: 40px;
 }
 .modal-card__forms {
@@ -871,10 +911,22 @@ html {
   display: inline-block;
   margin-bottom: 10px;
   line-height: 133.333%;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+.account__log-in:hover {
+  color: #bb945f;
+  opacity: 0.5;
 }
 .account__register {
   display: inline-block;
   line-height: 133.333%;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+}
+.account__register:hover {
+  color: #bb945f;
+  opacity: 0.5;
 }
 .account__back {
   position: absolute;

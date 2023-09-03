@@ -210,9 +210,8 @@ document.addEventListener("DOMContentLoaded", function() {
       targetElement.classList.add('tab-active');
     }
   });
-
-  //document.querySelector('.tabs__label').click();
-
+  
+/*
   //dropMenu before register
   const buttonRegister = document.querySelector('.profile-header__image');
   const openRegister = document.querySelector('.account');
@@ -231,6 +230,6 @@ document.addEventListener("DOMContentLoaded", function() {
       openRegister.classList.remove('profile-active');
     }
   }); 
-
+*/
   //НЕ ТРОГАТЬ======///// 
 });

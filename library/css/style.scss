@@ -413,6 +413,11 @@ body {
     display: inline-block;
     margin-bottom: 10px;
     line-height: 133.333%;
+    transition: all 0.5s ease 0s;
+    &:hover {
+      color: #bb945f;
+      opacity: 0.5;
+    }
   }
 
   // .account__register
@@ -420,6 +425,11 @@ body {
   &__register {
     display: inline-block;
     line-height: 133.333%;
+    transition: all 0.5s ease 0s;
+    &:hover {
+      color: #bb945f;
+      opacity: 0.5;
+    }
   }
 
   // .account__back
