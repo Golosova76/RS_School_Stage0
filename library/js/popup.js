@@ -173,17 +173,38 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     closeAllPopups();
   });
+  //функция получения инициалов
+  function createUserInitialsElement(firstName, lastName) {
+    const initials = `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+    const initialsElement = document.createElement('div');
+    initialsElement.classList.add('user-initials');
+    initialsElement.textContent = initials;
+    return initialsElement;
+  }
   //функция обновления блока профиля
   function updateProfileBlock(user) {
     const profileBlock = document.querySelector('.account__front');
+    const profileImageBlock = document.querySelector('.profile-header__image');
+    // Удалить текущее содержимое блока
+    while (profileImageBlock.firstChild) {
+      profileImageBlock.removeChild(profileImageBlock.firstChild);
+    }
     if (user) {
       profileBlock.querySelector('.account__title').textContent = user.cardNumber;
+      profileBlock.querySelector('.account__title').style.fontSize = '12px';
       profileBlock.querySelector('.account__log-in').textContent = "My Profile";
       profileBlock.querySelector('.account__register').textContent = "Log Out";
+      const userInitialsElement = createUserInitialsElement(user.firstName, user.lastName);
+      profileImageBlock.appendChild(userInitialsElement);
     } else {
       profileBlock.querySelector('.account__title').textContent = "Profile";
+      profileBlock.querySelector('.account__title').style.fontSize = '15px';
       profileBlock.querySelector('.account__log-in').textContent = "Log In";
       profileBlock.querySelector('.account__register').textContent = "Register";
+      const defaultImage = document.createElement('img');
+      defaultImage.src = "img/header/profile.svg";
+      defaultImage.alt = "profile";
+      profileImageBlock.appendChild(defaultImage);
     }
   }
   //выход из профиля
