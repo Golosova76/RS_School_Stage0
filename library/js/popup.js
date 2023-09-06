@@ -12,18 +12,18 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   //popup register---------------------------//
-  //const openRegisterButtons = document.querySelectorAll('.register');
+  const openRegisterButtons = document.querySelectorAll('.register');
   const modalRegister = document.querySelector('#modal-register');  
 
-  //if (openRegisterButtons.length > 0) {
-  //  openRegisterButtons.forEach(button => {
-  //    button.addEventListener('click', () => {
-  //      closeAllPopups();
-  //      modalRegister.classList.add('popup-open');
-  //      document.querySelector('.account').classList.remove('profile-active');
-  //    })
-  //  })
-  //}
+  if (openRegisterButtons.length > 0) {
+    openRegisterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        closeAllPopups();
+        modalRegister.classList.add('popup-open');
+        document.querySelector('.account').classList.remove('profile-active');
+      })
+    })
+  }
 
   const popupActive = document.querySelector('.modal.popup-open');
   if (popupActive) {
@@ -48,18 +48,18 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   //popup login---------------------------//
-  //const openLoginButtons = document.querySelectorAll('.login');
+  const openLoginButtons = document.querySelectorAll('.login');
   const modalLogin = document.querySelector('#modal-login');
   
-  //if (openLoginButtons.length > 0) {
-  //  openLoginButtons.forEach(button => {
-  //    button.addEventListener('click', () => {
-  //      closeAllPopups();
-  //      modalLogin.classList.add('popup-open');
-  //      document.querySelector('.account').classList.remove('profile-active');
-  //    })
-  //  });
-  //}
+  if (openLoginButtons.length > 0) {
+    openLoginButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        closeAllPopups();
+        modalLogin.classList.add('popup-open');
+        document.querySelector('.account').classList.remove('profile-active');
+      })
+    });
+  }
 
   if (modalLogin) {
     modalLogin.addEventListener('click', function(e) {
