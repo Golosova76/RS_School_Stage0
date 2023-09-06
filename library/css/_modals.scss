@@ -296,7 +296,7 @@
     justify-content: center;
     align-items: center;
     background-color: #0c0c0e;
-    max-width: 170px;
+    width: 170px;
     padding: 138px 25px;
   }
 
@@ -327,7 +327,7 @@
   &__right {
     display: flex;
     flex-direction: column;
-    max-width: 430px;
+    width: 430px;
     padding: 17px 20px 37px 20px;
   }
 }
@@ -402,7 +402,7 @@
       letter-spacing: 0.8px;
       text-transform: uppercase;
       text-align: left;
-      padding-top: 30px;
+      padding-top: 20px;
     }
   }
 
@@ -411,8 +411,8 @@
   &__button {
     //header-modal__button_profile
     &_profile {
-      top: 15px;
-      right: -35px;
+      top: 2px;
+      right: 2px;
     }
   }
 }

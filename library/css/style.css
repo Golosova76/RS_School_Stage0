@@ -335,7 +335,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: #0c0c0e;
-  max-width: 170px;
+  width: 170px;
   padding: 138px 25px;
 }
 .modal-profile__initials {
@@ -362,7 +362,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 430px;
+  width: 430px;
   padding: 17px 20px 37px 20px;
 }
 
@@ -416,11 +416,11 @@ body {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   text-align: left;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 .header-modal__button_profile {
-  top: 15px;
-  right: -35px;
+  top: 2px;
+  right: 2px;
 }
 
 .rented__title {

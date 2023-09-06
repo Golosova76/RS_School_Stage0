@@ -1,8 +1,6 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded", function() {
-
-  const closeModalButtons = document.querySelectorAll('.popup-close');
+document.addEventListener("DOMContentLoaded", function() {  
 
   function closeAllPopups() {
     const allPopups = document.querySelectorAll('.modal.popup-open');
@@ -12,43 +10,68 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   //popup register---------------------------//
-  const openRegisterButtons = document.querySelectorAll('.register');
+  const openRegisterButtons = document.querySelectorAll('.register.profile-action');
   const modalRegister = document.querySelector('#modal-register');  
 
   if (openRegisterButtons.length > 0) {
     openRegisterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        closeAllPopups();
-        modalRegister.classList.add('popup-open');
-        document.querySelector('.account').classList.remove('profile-active');
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        if (!loggedInUserCardNumber) {
+          closeAllPopups();
+          modalRegister.classList.add('popup-open');
+          document.querySelector('.account').classList.remove('profile-active');
+        }
       })
     })
   }
 
-  const popupActive = document.querySelector('.modal.popup-open');
-  if (popupActive) {
-    popupActive.classList.remove('popup-open');
-  }
+  //const popupActive = document.querySelector('.modal.popup-open');
+  //if (popupActive) {
+  //  popupActive.classList.remove('popup-open');
+  //}
 
-  if (modalRegister) {
-    modalRegister.addEventListener('click', function(e) {
-      if (!e.target.closest('.modal-register__content')) {
-        modalRegister.classList.remove('popup-open');
+//  if (modalRegister) {
+//    modalRegister.addEventListener('click', function(e) {
+//      if (!e.target.closest('.modal-register__content')) {
+//        modalRegister.classList.remove('popup-open');
+//      }
+//    });
+//  }
+
+  //функция акрытия (удаления класса) popups по клику вне его
+  function addCloseListener(modal, contentClass) {
+    modal.addEventListener('click', function(e) {
+      if (!e.target.closest(contentClass)) {
+        modal.classList.remove('popup-open');
       }
     });
   }
+  addCloseListener(modalRegister, '.modal-register__content');  
   
-
-  if (closeModalButtons.length > 0) {
-    closeModalButtons.forEach(button => {
+  //закрытие popups по крестику
+  const closeModalButtons = document.querySelectorAll('.popup-close');  
+  //функция закрытия (удаления класса) popups по крестику
+  function addCloseButtonListener(buttons, modal) {
+    buttons.forEach(button => {
       button.addEventListener('click', () => {
-        modalRegister.classList.remove('popup-open');
-      })
+        modal.classList.remove('popup-open');
+      });
     });
   }
+  addCloseButtonListener(closeModalButtons, modalRegister);
+
+//  if (closeModalButtons.length > 0) {
+//    closeModalButtons.forEach(button => {
+//      button.addEventListener('click', () => {
+//        modalRegister.classList.remove('popup-open');
+//        modalLogin.classList.remove('popup-open');
+//      })
+//    });
+//  }
 
   //popup login---------------------------//
-  const openLoginButtons = document.querySelectorAll('.login');
+  const openLoginButtons = document.querySelectorAll('.login.profile-action');
   const modalLogin = document.querySelector('#modal-login');
   
   if (openLoginButtons.length > 0) {
@@ -60,22 +83,26 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     });
   }
+  //console.log(document.querySelector('.account'))
+  addCloseButtonListener(closeModalButtons, modalLogin);
+  addCloseListener(modalLogin, '.modal-login__content');
 
-  if (modalLogin) {
-    modalLogin.addEventListener('click', function(e) {
-      if (!e.target.closest('.modal-login__content')) {
-        modalLogin.classList.remove('popup-open');
-      }
-    });
-  }
 
-  if (closeModalButtons.length > 0) {
-    closeModalButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        modalLogin.classList.remove('popup-open');
-      })
-    });
-  }
+//  if (modalLogin) {
+//    modalLogin.addEventListener('click', function(e) {
+//      if (!e.target.closest('.modal-login__content')) {
+////        modalLogin.classList.remove('popup-open');
+//     }
+//   });
+//  }
+  
+  //if (closeModalButtons.length > 0) {
+  //  closeModalButtons.forEach(button => {
+  //    button.addEventListener('click', () => {
+  //      modalLogin.classList.remove('popup-open');
+  //    })
+  //  });
+  //}
 
   //popup profile---------------------------//
 
@@ -151,6 +178,10 @@ document.addEventListener("DOMContentLoaded", function() {
       let key = localStorage.key(i);
       let user = JSON.parse(localStorage.getItem(key));
       if ((user.email === identifier || user.cardNumber === identifier) && user.password === password) {
+        // Увеличиваем счетчик визитов
+        user.visits = (user.visits || 0) + 1; 
+        // Сохраняем обновленный объект пользователя обратно в localStorage
+        localStorage.setItem(key, JSON.stringify(user));
         //Возвращаем объект пользователя, если авторизация прошла успешно
         return user; 
       }
@@ -235,20 +266,42 @@ document.addEventListener("DOMContentLoaded", function() {
     if (buttonText === "Log In") {
         closeAllPopups();
         document.querySelector('#modal-login').classList.add('popup-open');
+        //можно сюда добавить document.querySelector('.account').classList.remove('profile-active'); сверху
+        //когда разберусь с заменой блока library card
     } else if (buttonText === "My Profile") {
-        // Здесь может быть ваш код для перехода в профиль или отображения деталей профиля
+      // Здесь может быть ваш код для перехода в профиль или отображения деталей профиля
+      const openMyProfile = document.querySelector('.open-profile');
+      const modalProfile = document.querySelector('#modal-profile');
+      if (openMyProfile) {
+        closeAllPopups();
+        modalProfile.classList.add('popup-open');
+        document.querySelector('.account').classList.remove('profile-active');
+        addCloseButtonListener(closeModalButtons, modalProfile);
+        addCloseListener(modalProfile, '.modal-profile__content');
+      }
     }
   });
   //сохранение авторизации после обновления страницы
-  document.addEventListener("DOMContentLoaded", function() {
-    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+  const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    console.log("Logged in User Card Number:", loggedInUserCardNumber);
     if (loggedInUserCardNumber) {
         const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
         updateProfileBlock(user);
     } else {
         updateProfileBlock(null); // Если пользователь не авторизован
     }
-});
+    /*
+  document.addEventListener("DOMContentLoaded", function() {
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    console.log("Logged in User Card Number:", loggedInUserCardNumber);
+    if (loggedInUserCardNumber) {
+        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+        updateProfileBlock(user);
+    } else {
+        updateProfileBlock(null); // Если пользователь не авторизован
+    }
+  });
+  */
 
 
   //СТАРОЕ
