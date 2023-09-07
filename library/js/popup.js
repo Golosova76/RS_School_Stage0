@@ -25,20 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     })
   }
-
-  //const popupActive = document.querySelector('.modal.popup-open');
-  //if (popupActive) {
-  //  popupActive.classList.remove('popup-open');
-  //}
-
-//  if (modalRegister) {
-//    modalRegister.addEventListener('click', function(e) {
-//      if (!e.target.closest('.modal-register__content')) {
-//        modalRegister.classList.remove('popup-open');
-//      }
-//    });
-//  }
-
   //функция акрытия (удаления класса) popups по клику вне его
   function addCloseListener(modal, contentClass) {
     modal.addEventListener('click', function(e) {
@@ -47,8 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
-  addCloseListener(modalRegister, '.modal-register__content');  
-  
+  addCloseListener(modalRegister, '.modal-register__content');
   //закрытие popups по крестику
   const closeModalButtons = document.querySelectorAll('.popup-close');  
   //функция закрытия (удаления класса) popups по крестику
@@ -60,16 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
   addCloseButtonListener(closeModalButtons, modalRegister);
-
-//  if (closeModalButtons.length > 0) {
-//    closeModalButtons.forEach(button => {
-//      button.addEventListener('click', () => {
-//        modalRegister.classList.remove('popup-open');
-//        modalLogin.classList.remove('popup-open');
-//      })
-//    });
-//  }
-
   //popup login---------------------------//
   const openLoginButtons = document.querySelectorAll('.login.profile-action');
   const modalLogin = document.querySelector('#modal-login');
@@ -83,29 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     });
   }
-  //console.log(document.querySelector('.account'))
   addCloseButtonListener(closeModalButtons, modalLogin);
   addCloseListener(modalLogin, '.modal-login__content');
-
-
-//  if (modalLogin) {
-//    modalLogin.addEventListener('click', function(e) {
-//      if (!e.target.closest('.modal-login__content')) {
-////        modalLogin.classList.remove('popup-open');
-//     }
-//   });
-//  }
-  
-  //if (closeModalButtons.length > 0) {
-  //  closeModalButtons.forEach(button => {
-  //    button.addEventListener('click', () => {
-  //      modalLogin.classList.remove('popup-open');
-  //    })
-  //  });
-  //}
-
-  //popup profile---------------------------//
-
   //LocalStorage---------------------------//
   //функция генерации cardNumber
   function generateCardNumber() {
@@ -166,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (cardNumber) {
       alert('Registration successful! You card number: ' + cardNumber);
+      //автоматически авторизуем пользователя после регистрации
       let user = JSON.parse(localStorage.getItem(cardNumber));
       localStorage.setItem('loggedInUser', user.cardNumber);
       updateProfileBlock(user);
@@ -269,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //можно сюда добавить document.querySelector('.account').classList.remove('profile-active'); сверху
         //когда разберусь с заменой блока library card
     } else if (buttonText === "My Profile") {
-      // Здесь может быть ваш код для перехода в профиль или отображения деталей профиля
+      // Здесь может быть код для перехода в профиль или отображения деталей профиля
       const openMyProfile = document.querySelector('.open-profile');
       const modalProfile = document.querySelector('#modal-profile');
       if (openMyProfile) {
@@ -290,60 +245,6 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         updateProfileBlock(null); // Если пользователь не авторизован
     }
-    /*
-  document.addEventListener("DOMContentLoaded", function() {
-    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
-    console.log("Logged in User Card Number:", loggedInUserCardNumber);
-    if (loggedInUserCardNumber) {
-        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
-        updateProfileBlock(user);
-    } else {
-        updateProfileBlock(null); // Если пользователь не авторизован
-    }
-  });
-  */
-
-
-  //СТАРОЕ
-  /*
-  const registrationForm = document.querySelector("#modal-register");
-  registrationForm.addEventListener("submit", function(event) {
-    event.preventDefault();
-    const firstName = document.querySelector("[name='firstName']").value;
-    const lastName = document.querySelector("[name='lastName']").value;
-    const email = document.querySelector("[name='email']").value;
-    const password = document.querySelector("[name='password']").value;
-    //const cardNumber = (Math.floor(Math.random() * (0xFFFFFFFFF - 0x100000000 + 1)) + 0x100000000).toString(16).toUpperCase();
-    const cardNumber = Math.floor(Math.random() * (0xFFFFFFFFF)).toString(16).toUpperCase().padStart(9, '0');
-    // Сборка объекта user
-    let user = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password, 
-      cardNumber: cardNumber,
-      visits: 1, // Поскольку пользователь уже посетил сайт при регистрации
-      books: [],
-      isAuthorized: true,
-      isRegistered: true,
-      isBuy: false
-    };
-    // Сохранение объекта user в localStorage
-    localStorage.setItem('user', JSON.stringify(user));
-        
-    // Вывод сообщения об успешной регистрации или другие действия
-    alert("Registration successful!");
-    closeAllPopups();
-  });
-  window.onload = function() {
-    let user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-        user.visits += 1;
-        localStorage.setItem('user', JSON.stringify(user));
-    }
-  };
-  */
-  //СТАРОЕ
   //LocalStorage---------------------------//
 
   //НЕ ТРОГАТЬ!!!!
