@@ -52,14 +52,34 @@ document.addEventListener("DOMContentLoaded", function() {
   if (openLoginButtons.length > 0) {
     openLoginButtons.forEach(button => {
       button.addEventListener('click', () => {
-        closeAllPopups();
-        modalLogin.classList.add('popup-open');
-        document.querySelector('.account').classList.remove('profile-active');
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        if (!loggedInUserCardNumber) {
+          closeAllPopups();
+          modalLogin.classList.add('popup-open');
+          document.querySelector('.account').classList.remove('profile-active');
+        }
       })
     });
   }
   addCloseButtonListener(closeModalButtons, modalLogin);
   addCloseListener(modalLogin, '.modal-login__content');
+  //popup card---------------------------//
+  const openBuyCardButtons = document.querySelectorAll('.open-card');
+  const modalCard = document.querySelector('#modal-card');
+
+  if (openBuyCardButtons.length > 0) {
+    openBuyCardButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        if (loggedInUserCardNumber) {
+          closeAllPopups();
+          modalCard.classList.add('popup-open');
+        }
+      })
+    });
+  }
+  addCloseButtonListener(closeModalButtons, modalCard);
+  addCloseListener(modalCard, '.modal-card__content');
   //LocalStorage---------------------------//
   //функция генерации cardNumber
   function generateCardNumber() {
@@ -225,6 +245,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //когда разберусь с заменой блока library card
     } else if (buttonText === "My Profile") {
       // Здесь может быть код для перехода в профиль или отображения деталей профиля
+      //popup profile---------------------------//
       const openMyProfile = document.querySelector('.open-profile');
       const modalProfile = document.querySelector('#modal-profile');
       if (openMyProfile) {
