@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
       })
     })
   }
-  //функция акрытия (удаления класса) popups по клику вне его
+  //функция закрытия (удаления класса) popups по клику вне его
   function addCloseListener(modal, contentClass) {
     modal.addEventListener('click', function(e) {
       if (!e.target.closest(contentClass)) {
@@ -202,6 +202,7 @@ document.addEventListener("DOMContentLoaded", function() {
       profileBlock.querySelector('.account__register').textContent = "Log Out";
       const userInitialsElement = createUserInitialsElement(user.firstName, user.lastName);
       profileImageBlock.appendChild(userInitialsElement);
+      profileImageBlock.setAttribute('title', `${user.firstName} ${user.lastName}`)
     } else {
       profileBlock.querySelector('.account__title').textContent = "Profile";
       profileBlock.querySelector('.account__title').style.fontSize = '15px';
@@ -213,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function() {
       profileImageBlock.appendChild(defaultImage);
     }
   }
+  /*
   //выход из профиля
   document.querySelector(".account__register").addEventListener("click", function() {
     const buttonText = this.textContent;
@@ -221,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateProfileBlock(null); // Обновляем блок профиля после выхода из профиля
     }
   });
+  */
   //обработка кнопки register и log out
   document.querySelector(".account__front").addEventListener("click", function(event) {
     const targetButton = event.target;
@@ -230,8 +233,10 @@ document.addEventListener("DOMContentLoaded", function() {
             closeAllPopups();
             document.querySelector('#modal-register').classList.add('popup-open');
         } else if (buttonText === "Log Out") {
-            localStorage.removeItem("loggedInUser");
-            updateProfileBlock(null);
+          //выход из профиля
+          localStorage.removeItem("loggedInUser");
+          updateProfileBlock(null);
+          document.querySelector('.account').classList.remove('profile-active');
         }
     }
   });
