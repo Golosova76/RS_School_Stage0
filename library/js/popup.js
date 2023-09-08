@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (user) {
       localStorage.setItem('loggedInUser', user.cardNumber);
       updateProfileBlock(user);
+      showVisitProfileBlock(user);
     }
     closeAllPopups();
   });
@@ -237,6 +238,7 @@ document.addEventListener("DOMContentLoaded", function() {
           localStorage.removeItem("loggedInUser");
           updateProfileBlock(null);
           document.querySelector('.account').classList.remove('profile-active');
+          showVisitProfileBlock(null);
         }
     }
   });
@@ -268,10 +270,52 @@ document.addEventListener("DOMContentLoaded", function() {
     if (loggedInUserCardNumber) {
         const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
         updateProfileBlock(user);
+        showVisitProfileBlock(user);
     } else {
         updateProfileBlock(null); // Если пользователь не авторизован
+        showVisitProfileBlock(null);
     }
   //LocalStorage---------------------------//
+  //функция обновления library-cards => library-cards__account
+  function showVisitProfileBlock(user) {
+    const profileVisitBlock = document.querySelector('.library-cards__account');
+    //для изменения кнопок
+    const signUpButton = document.querySelector('.library-cards__button.register');
+    const logInButton = document.querySelector('.library-cards__button.login');
+    if (user) {
+      profileVisitBlock.querySelector('.library-cards__get').textContent = 'Visit your profile';
+      profileVisitBlock.querySelector('.library-cards__text').textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+      if (signUpButton) {
+        signUpButton.style.display = 'none'; // Скрываем кнопку Sign Up
+      }
+      if (logInButton) {
+        logInButton.textContent = 'Profile'; // Изменить текст кнопки на Profile
+      }
+      const openProfileInCard = document.querySelector('.open-profile-card');
+      openProfileInCard.addEventListener('click', function() {
+        const buttonText = this.textContent;
+        if (buttonText === 'Profile') {
+          if (openProfileInCard) {
+            closeAllPopups();
+            const modalProfile = document.querySelector('#modal-profile');
+            modalProfile.classList.add('popup-open');
+            document.querySelector('.account').classList.remove('profile-active');
+            addCloseButtonListener(closeModalButtons, modalProfile);
+            addCloseListener(modalProfile, '.modal-profile__content');
+          }
+        }
+      })
+    } else {
+      profileVisitBlock.querySelector('.library-cards__get').textContent = 'Get a reader card';
+      profileVisitBlock.querySelector('.library-cards__text').textContent = 'You will be able to see a reader card after logging into account or you can register a new account';
+      if (signUpButton) {
+        signUpButton.style.display = ''; // Возвращаем кнопку обратно (делаем видимой)
+      }
+      if (logInButton) {
+        logInButton.textContent = 'Log in'; // Восстановить первоначальный текст
+      }
+    }
+  }
 
   //НЕ ТРОГАТЬ!!!!
 });
