@@ -193,6 +193,34 @@ document.addEventListener("DOMContentLoaded", function() {
     initialsElement.textContent = initials;
     return initialsElement;
   }
+  //функция обновления данных в modal profile
+  function updateProfileModal() {
+    // Получаем данные текущего пользователя из localStorage
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+
+    if (!user) return; // Если нет данных пользователя, выходим из функции
+
+    // Находим элементы модального окна, которые нужно обновить
+    const modalTotalBlock = document.querySelector('#modal-profile');
+    const initialsElement = modalTotalBlock.querySelector('.modal-profile__initials');
+    const nameElement = modalTotalBlock.querySelector('.modal-profile__name');
+    const visitsElement = modalTotalBlock.querySelector('.profile-stats__count');
+    const cardNumberProfileModalElement = modalTotalBlock.querySelector('.copy-number__card');
+
+    // Обновляем инициалы
+    const initials = createUserInitialsElement(user.firstName, user.lastName);
+    initialsElement.textContent = initials.textContent;
+
+    // Обновляем имя пользователя
+    nameElement.textContent = `${user.firstName} ${user.lastName}`;
+
+    // Обновляем количество посещений
+    visitsElement.textContent = user.visits;
+
+    // Обновляем номер карты
+    cardNumberProfileModalElement.textContent = user.cardNumber;
+  }
   //функция обновления блока профиля
   function updateProfileBlock(user) {
     const profileBlock = document.querySelector('.account__front');
@@ -263,6 +291,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const modalProfile = document.querySelector('#modal-profile');
       if (openMyProfile) {
         closeAllPopups();
+        updateProfileModal();
         modalProfile.classList.add('popup-open');
         document.querySelector('.account').classList.remove('profile-active');
         addCloseButtonListener(closeModalButtons, modalProfile);
@@ -307,6 +336,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (openProfileInCard) {
             closeAllPopups();
             const modalProfile = document.querySelector('#modal-profile');
+            updateProfileModal();
             modalProfile.classList.add('popup-open');
             document.querySelector('.account').classList.remove('profile-active');
             addCloseButtonListener(closeModalButtons, modalProfile);
@@ -327,23 +357,37 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   //функция обновления library-cards => library-cards__forms card
   function showFormCardBlock(user) {
-    const formsCardBlock = document.querySelector('.library-cards__forms.card')
+    const formsCardBlock = document.querySelector('.library-cards__forms.card');    
+    const inputNameElement = formsCardBlock.querySelector('.input-name');
+    const inputCardNumberElement = formsCardBlock.querySelector('.input-card');
 
     if (user) {
       formsCardBlock.querySelector('.card__subtitle').textContent = 'Your Library card';
       replaceButtonWithStats();
+      inputNameElement.placeholder = `${user.firstName} ${user.lastName}`;
+      inputCardNumberElement.placeholder = user.cardNumber;
+      inputNameElement.disabled = true;
+      inputCardNumberElement.disabled = true;
     } else {
       formsCardBlock.querySelector('.card__subtitle').textContent = 'Find your Library card';
       restoreButton();
+      inputNameElement.placeholder = 'Reader\'s name';
+      inputCardNumberElement.placeholder = 'Card number';
+      inputNameElement.disabled = false;
+      inputCardNumberElement.disabled = false;
     }
   }
   ////функция генерации блока статистики
   function createStatsElement() {
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+    const visits = user.visits; // Получаем количество визитов из объекта user
+
     const statsList = document.createElement('ul');
     statsList.className = 'card__stats-list';
 
     const statsItems = [
-      { title: 'Visits', icon: 'visit.svg', count: '23' },
+      { title: 'Visits', icon: 'visit.svg', count: visits },
       { title: 'Bonuses', icon: 'bonus.svg', count: '1240' },
       { title: 'Books', icon: 'book.svg', count: '2' }
     ];
@@ -371,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     return statsList;
   }
-  ////замена кнопки блоком статисики и назад
+  ////замена кнопки блоком статистики и назад
   function replaceButtonWithStats () {
     const buttonElement = document.querySelector('.card__button.card__button_big');
     if (buttonElement) {
@@ -387,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function() {
         statsList.parentNode.insertBefore(savedButtonElement, statsList);
         statsList.parentNode.removeChild(statsList);
     }
-}
+  }
 
   //НЕ ТРОГАТЬ!!!!
 });
