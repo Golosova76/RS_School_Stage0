@@ -2,6 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function() {  
 
+  let savedButtonElement = null;
+
   function closeAllPopups() {
     const allPopups = document.querySelectorAll('.modal.popup-open');
     allPopups.forEach(popup => {
@@ -144,6 +146,8 @@ document.addEventListener("DOMContentLoaded", function() {
       let user = JSON.parse(localStorage.getItem(cardNumber));
       localStorage.setItem('loggedInUser', user.cardNumber);
       updateProfileBlock(user);
+      showVisitProfileBlock(user);
+      showFormCardBlock(user);
     }
     closeAllPopups();
   });
@@ -177,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
       localStorage.setItem('loggedInUser', user.cardNumber);
       updateProfileBlock(user);
       showVisitProfileBlock(user);
+      showFormCardBlock(user);
     }
     closeAllPopups();
   });
@@ -239,6 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
           updateProfileBlock(null);
           document.querySelector('.account').classList.remove('profile-active');
           showVisitProfileBlock(null);
+          showFormCardBlock(null);
         }
     }
   });
@@ -271,9 +277,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
         updateProfileBlock(user);
         showVisitProfileBlock(user);
+        showFormCardBlock(user);
     } else {
         updateProfileBlock(null); // Если пользователь не авторизован
         showVisitProfileBlock(null);
+        showFormCardBlock(null);
     }
   //LocalStorage---------------------------//
   //функция обновления library-cards => library-cards__account
@@ -282,6 +290,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //для изменения кнопок
     const signUpButton = document.querySelector('.library-cards__button.register');
     const logInButton = document.querySelector('.library-cards__button.login');
+
     if (user) {
       profileVisitBlock.querySelector('.library-cards__get').textContent = 'Visit your profile';
       profileVisitBlock.querySelector('.library-cards__text').textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
@@ -316,6 +325,69 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   }
+  //функция обновления library-cards => library-cards__forms card
+  function showFormCardBlock(user) {
+    const formsCardBlock = document.querySelector('.library-cards__forms.card')
+
+    if (user) {
+      formsCardBlock.querySelector('.card__subtitle').textContent = 'Your Library card';
+      replaceButtonWithStats();
+    } else {
+      formsCardBlock.querySelector('.card__subtitle').textContent = 'Find your Library card';
+      restoreButton();
+    }
+  }
+  ////функция генерации блока статистики
+  function createStatsElement() {
+    const statsList = document.createElement('ul');
+    statsList.className = 'card__stats-list';
+
+    const statsItems = [
+      { title: 'Visits', icon: 'visit.svg', count: '23' },
+      { title: 'Bonuses', icon: 'bonus.svg', count: '1240' },
+      { title: 'Books', icon: 'book.svg', count: '2' }
+    ];
+
+    for (const item of statsItems) {
+      const listItem = document.createElement('li');
+      listItem.className = 'card__stats-item';
+
+      const title = document.createElement('span');
+      title.className = 'card__stats-title';
+      title.textContent = item.title;
+
+      const icon = document.createElement('img');
+      icon.src = `img/library-card/icons/${item.icon}`;
+      icon.alt = item.title.toLowerCase();
+
+      const count = document.createElement('span');
+      count.className = 'card__stats-count';
+      count.textContent = item.count;
+
+      listItem.appendChild(title);
+      listItem.appendChild(icon);
+      listItem.appendChild(count);
+      statsList.appendChild(listItem);
+    }
+    return statsList;
+  }
+  ////замена кнопки блоком статисики и назад
+  function replaceButtonWithStats () {
+    const buttonElement = document.querySelector('.card__button.card__button_big');
+    if (buttonElement) {
+      savedButtonElement = buttonElement.cloneNode(true);
+      const statsElement = createStatsElement();
+      buttonElement.parentNode.insertBefore(statsElement, buttonElement);
+      buttonElement.parentNode.removeChild(buttonElement);
+    }
+  }
+  function restoreButton() {
+    const statsList = document.querySelector('.card__stats-list');
+    if (statsList && savedButtonElement) {
+        statsList.parentNode.insertBefore(savedButtonElement, statsList);
+        statsList.parentNode.removeChild(statsList);
+    }
+}
 
   //НЕ ТРОГАТЬ!!!!
 });

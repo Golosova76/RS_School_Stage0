@@ -21,6 +21,14 @@
       opacity: 1;
       transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
     }
+    .modal-profile__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+    .modal-card__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
   }
 }
 .modal-login {
@@ -275,6 +283,7 @@
     justify-content: center;
     padding: 20px 25px;
     min-height: 100%;
+    transition: all 0.8s ease 0s;
   }
 
   // .modal-profile__content
@@ -285,7 +294,9 @@
     justify-content: center;
     max-width: 600px;
     background-color: #fff;
-    //padding: 20px 25px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
   }
 
   // .modal-profile__left
@@ -499,6 +510,7 @@
     justify-content: center;
     padding: 20px 25px;
     min-height: 100%;
+    transition: all 0.8s ease 0s;
   }
 
   // .modal-card__content
@@ -506,6 +518,9 @@
   &__content {
     max-width: 640px;
     background-color: #fff;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
   }
 
   // .modal-card__header

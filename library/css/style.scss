@@ -1494,6 +1494,42 @@ body {
   }
 }
 
+.card {
+  // .stats-list
+  &__stats-list {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+  // .stats-item
+  &__stats-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    img {
+      width: 20px;
+      height: 21px;
+    }
+  }
+  // .stats-title
+  &__stats-title {
+    font-size: 10px;
+    line-height: 200%;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+  }
+  // .stats-count
+  &__stats-count {
+    font-size: 10px;
+    line-height: 200%;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+  }
+}
+
 //===== library-cards =====//
 
 //======== footer ========//
