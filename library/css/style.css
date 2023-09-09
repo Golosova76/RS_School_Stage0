@@ -703,6 +703,12 @@ html {
   background-color: #bb945f;
   border: 1px solid #bb945f;
 }
+.button_own {
+  color: #bb945f;
+  border: 1px solid #bb945f;
+  pointer-events: none;
+}
+
 .user-initials {
   color: #bb945f;
   width: 28px;

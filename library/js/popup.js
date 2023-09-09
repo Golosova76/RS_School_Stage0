@@ -73,9 +73,16 @@ document.addEventListener("DOMContentLoaded", function() {
     openBuyCardButtons.forEach(button => {
       button.addEventListener('click', () => {
         const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
         if (loggedInUserCardNumber) {
-          closeAllPopups();
-          modalCard.classList.add('popup-open');
+          if (!user.isBuy) {
+            closeAllPopups();
+            modalCard.classList.add('popup-open');
+          } else {
+            //alert('Card is buy');
+          }
+          //closeAllPopups();
+          //modalCard.classList.add('popup-open');
         }
       })
     });
@@ -123,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
       cardNumber: cardNumber,
       visits: 1, // Поскольку пользователь уже посетил сайт при регистрации
       books: [],
+      countBooks: 0,
       isBuy: false
     };
     localStorage.setItem(cardNumber, JSON.stringify(user));
@@ -205,7 +213,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const modalTotalBlock = document.querySelector('#modal-profile');
     const initialsElement = modalTotalBlock.querySelector('.modal-profile__initials');
     const nameElement = modalTotalBlock.querySelector('.modal-profile__name');
-    const visitsElement = modalTotalBlock.querySelector('.profile-stats__count');
+    const visitsElement = modalTotalBlock.querySelector('.count-visits');
+    const booksElement = modalTotalBlock.querySelector('.count-books');
     const cardNumberProfileModalElement = modalTotalBlock.querySelector('.copy-number__card');
 
     // Обновляем инициалы
@@ -217,6 +226,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Обновляем количество посещений
     visitsElement.textContent = user.visits;
+
+    //обновляем количество книг
+    booksElement.textContent = user.countBooks;
 
     // Обновляем номер карты
     cardNumberProfileModalElement.textContent = user.cardNumber;
@@ -411,6 +423,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
     const user = JSON.parse(localStorage.getItem(cardNumber));
     const visits = user.visits; // Получаем количество визитов из объекта user
+    const countBooks = user.countBooks; // Получаем количество книг из объекта user
 
     const statsList = document.createElement('ul');
     statsList.className = 'card__stats-list';
@@ -418,7 +431,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const statsItems = [
       { title: 'Visits', icon: 'visit.svg', count: visits },
       { title: 'Bonuses', icon: 'bonus.svg', count: '1240' },
-      { title: 'Books', icon: 'book.svg', count: '2' }
+      { title: 'Books', icon: 'book.svg', count: countBooks }
     ];
 
     for (const item of statsItems) {
@@ -491,6 +504,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   // Установка слушателей событий
   formCardReadBuy.addEventListener('input', validateFormBuyCard);
+  formCardReadBuy.addEventListener('submit', function(event) {
+    event.preventDefault();
+    closeAllPopups();
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+    //меняем значение флага и обновляем localStorage
+    user.isBuy = true;
+    localStorage.setItem(loggedInUserCardNumber, JSON.stringify(user));
+  })
 
   //НЕ ТРОГАТЬ!!!!
 });
