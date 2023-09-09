@@ -360,14 +360,11 @@ document.addEventListener("DOMContentLoaded", function() {
   //слушатель submit на форму card
   const checkCardForm = document.querySelector('.card__form');
   checkCardForm.addEventListener('submit', function(event) {
-    console.log("Form submitted");
     event.preventDefault();
 
     // 1. Собираем данные с формы
     const inputNameValue = document.querySelector('.input-name').value;
-    //console.log(inputNameValue);
     const inputCardValue = document.querySelector('.input-card').value;
-    //console.log(inputCardValue);
 
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
@@ -375,13 +372,14 @@ document.addEventListener("DOMContentLoaded", function() {
       //const fullName = `${user.firstName} ${user.lastName}`;
   
       if (inputNameValue === user.firstName && inputCardValue === user.cardNumber) {
-        console.log("Name and card number match");
         const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
         if (!loggedInUserCardNumber) {
           console.log("User is not logged in");
   
           // Пользователь зарегистрирован, но не авторизован
-          replaceButtonWithStats();
+          console.log(inputCardValue);
+          console.log(inputNameValue);
+          replaceButtonWithStats(inputCardValue);
   
           setTimeout(() => {
             restoreButton();
@@ -405,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (user) {
       formsCardBlock.querySelector('.card__subtitle').textContent = 'Your Library card';
-      replaceButtonWithStats();
+      replaceButtonWithStats(user.cardNumber);
       inputNameElement.placeholder = `${user.firstName} ${user.lastName}`;
       inputCardNumberElement.placeholder = user.cardNumber;
       inputNameElement.disabled = true;
@@ -420,9 +418,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
   ////функция генерации блока статистики
-  function createStatsElement() {
-    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
-    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+  function createStatsElement(cardNumber) {
+    //const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    const user = JSON.parse(localStorage.getItem(cardNumber));
     const visits = user.visits; // Получаем количество визитов из объекта user
 
     const statsList = document.createElement('ul');
@@ -458,11 +456,11 @@ document.addEventListener("DOMContentLoaded", function() {
     return statsList;
   }
   ////замена кнопки блоком статистики и назад
-  function replaceButtonWithStats () {
+  function replaceButtonWithStats (cardNumber) {
     const buttonElement = document.querySelector('.card__button.card__button_big');
     if (buttonElement) {
       savedButtonElement = buttonElement.cloneNode(true);
-      const statsElement = createStatsElement();
+      const statsElement = createStatsElement(cardNumber);
       buttonElement.parentNode.insertBefore(statsElement, buttonElement);
       buttonElement.parentNode.removeChild(buttonElement);
     }
@@ -474,54 +472,6 @@ document.addEventListener("DOMContentLoaded", function() {
         statsList.parentNode.removeChild(statsList);
     }
   }
-  //функция для замены только кнопки на блок статистики 
-  function showFormForRegisteredUser(user) {
-    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
-  
-    if (user && !loggedInUserCardNumber) {
-      // Если пользователь зарегистрирован, но не авторизован      
-      replaceButtonWithStats();
-    } else {
-      // Если пользователь не зарегистрирован
-      restoreButton();
-    }
-  }
-  /*
-  //слушатель submit на форму card
-  const checkCardForm = document.querySelector('.card__form');
-  checkCardForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    // 1. Собираем данные с формы
-    const inputNameValue = document.querySelector('.input-name').value;
-    //console.log(inputNameValue);
-    const inputCardValue = document.querySelector('.input-card').value;
-    //console.log(inputCardValue);
-
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      const user = JSON.parse(localStorage.getItem(key));
-      //const fullName = `${user.firstName} ${user.lastName}`;
-  
-      if (inputNameValue === user.firstName && inputCardValue === user.cardNumber) {
-        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
-        if (!loggedInUserCardNumber) {
-  
-          // Пользователь зарегистрирован, но не авторизован
-          replaceButtonWithStats();
-  
-          setTimeout(() => {
-            restoreButton();
-            document.querySelector('.input-name').value = "";
-            document.querySelector('.input-card').value = "";
-          }, 10000);
-  
-          break;
-        }
-      }
-    }
-  });
-  */
 
   //НЕ ТРОГАТЬ!!!!
 });
