@@ -253,7 +253,7 @@
     letter-spacing: 0.6px;
     padding: 2px 5px;
     &:focus {
-      outline: 2px solid #972727;
+      outline: 2px solid #944e4e;
     }
   }
 
@@ -650,6 +650,11 @@
     letter-spacing: 2px;
     text-transform: uppercase;
   }
+}
+.button-buy-card[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 //============= modal card ===============//

@@ -298,7 +298,7 @@ body {
   padding: 2px 5px;
 }
 .form-login__input:focus {
-  outline: 2px solid #972727;
+  outline: 2px solid #944e4e;
 }
 .form-login__button_big {
   padding: 8px 14px;
@@ -600,6 +600,12 @@ body {
   text-transform: uppercase;
 }
 
+.button-buy-card[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -714,6 +720,10 @@ html {
           justify-content: center;
   text-align: center;
   font-size: 15px;
+}
+
+.invalid-input {
+  border: 2px solid red;
 }
 
 .header {

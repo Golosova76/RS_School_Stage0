@@ -282,10 +282,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (buttonText === "Log In") {
         closeAllPopups();
         document.querySelector('#modal-login').classList.add('popup-open');
-        //можно сюда добавить document.querySelector('.account').classList.remove('profile-active'); сверху
-        //когда разберусь с заменой блока library card
     } else if (buttonText === "My Profile") {
-      // Здесь может быть код для перехода в профиль или отображения деталей профиля
+      //код для перехода в профиль или отображения деталей профиля
       //popup profile---------------------------//
       const openMyProfile = document.querySelector('.open-profile');
       const modalProfile = document.querySelector('#modal-profile');
@@ -355,8 +353,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   }
-
-
   //слушатель submit на форму card
   const checkCardForm = document.querySelector('.card__form');
   checkCardForm.addEventListener('submit', function(event) {
@@ -388,9 +384,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
-
-
-
   //функция обновления library-cards => library-cards__forms card
   function showFormCardBlock(user) {
     const formsCardBlock = document.querySelector('.library-cards__forms.card');    
@@ -468,6 +461,36 @@ document.addEventListener("DOMContentLoaded", function() {
         statsList.parentNode.removeChild(statsList);
     }
   }
+  //валидация modalCard
+  const formCardReadBuy = document.querySelector('.form-login.form-card');
+  const cardReaderNumber = formCardReadBuy.querySelector('.bank-card');
+  const expirationCodes = formCardReadBuy.querySelectorAll('.form-login__two .form-login__input');
+  const cvc = formCardReadBuy.querySelector('.form-login__input_cvc');
+  const modalBuyButton = formCardReadBuy.querySelector('.button-buy-card'); 
+
+  modalBuyButton.disabled = true;
+
+  function validateFormBuyCard() {
+    // Проверка длины номера карты
+    const cardValid = (cardReaderNumber.value.replace(/\s/g, '').length === 16) && /^\d{12,19}$/.test(cardReaderNumber.value.replace(/\s/g, ''));
+    cardValid ? cardReaderNumber.classList.remove('invalid-input') : cardReaderNumber.classList.add('invalid-input');
+    // Проверка оба поля должны содержать 2 цифры.
+    const expValid = Array.from(expirationCodes).every(input => input.value.length === 2 && /^\d{2}$/.test(input.value));
+    expirationCodes.forEach(input => {
+      const isTwoDigits = /^\d{2}$/.test(input.value);
+      isTwoDigits ? input.classList.remove('invalid-input') : input.classList.add('invalid-input');
+    });
+    // Проверка CVC
+    const cvcValid = cvc.value.length === 3 && /^\d{3}$/.test(cvc.value);
+    cvcValid ? cvc.classList.remove('invalid-input') : cvc.classList.add('invalid-input');
+    // Проверка, чтобы все поля были заполнены
+    const allFilled = Array.from(formCardReadBuy.querySelectorAll('input[required]')).every(input => input.value.trim() !== '');
+
+    // Активация кнопки Buy
+    modalBuyButton.disabled = !(cardValid && expValid && cvcValid && allFilled);
+  }
+  // Установка слушателей событий
+  formCardReadBuy.addEventListener('input', validateFormBuyCard);
 
   //НЕ ТРОГАТЬ!!!!
 });
