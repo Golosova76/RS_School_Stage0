@@ -369,16 +369,12 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       const user = JSON.parse(localStorage.getItem(key));
-      //const fullName = `${user.firstName} ${user.lastName}`;
+      const fullName = `${user.firstName} ${user.lastName}`;
   
-      if (inputNameValue === user.firstName && inputCardValue === user.cardNumber) {
+      if (inputNameValue === fullName && inputCardValue === user.cardNumber) {
         const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
         if (!loggedInUserCardNumber) {
-          console.log("User is not logged in");
-  
           // Пользователь зарегистрирован, но не авторизован
-          console.log(inputCardValue);
-          console.log(inputNameValue);
           replaceButtonWithStats(inputCardValue);
   
           setTimeout(() => {
