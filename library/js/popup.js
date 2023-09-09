@@ -355,6 +355,48 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   }
+
+
+  //слушатель submit на форму card
+  const checkCardForm = document.querySelector('.card__form');
+  checkCardForm.addEventListener('submit', function(event) {
+    console.log("Form submitted");
+    event.preventDefault();
+
+    // 1. Собираем данные с формы
+    const inputNameValue = document.querySelector('.input-name').value;
+    //console.log(inputNameValue);
+    const inputCardValue = document.querySelector('.input-card').value;
+    //console.log(inputCardValue);
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const user = JSON.parse(localStorage.getItem(key));
+      //const fullName = `${user.firstName} ${user.lastName}`;
+  
+      if (inputNameValue === user.firstName && inputCardValue === user.cardNumber) {
+        console.log("Name and card number match");
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        if (!loggedInUserCardNumber) {
+          console.log("User is not logged in");
+  
+          // Пользователь зарегистрирован, но не авторизован
+          replaceButtonWithStats();
+  
+          setTimeout(() => {
+            restoreButton();
+            document.querySelector('.input-name').value = "";
+            document.querySelector('.input-card').value = "";
+          }, 10000);
+  
+          break;
+        }
+      }
+    }
+  });
+
+
+
   //функция обновления library-cards => library-cards__forms card
   function showFormCardBlock(user) {
     const formsCardBlock = document.querySelector('.library-cards__forms.card');    
@@ -432,6 +474,54 @@ document.addEventListener("DOMContentLoaded", function() {
         statsList.parentNode.removeChild(statsList);
     }
   }
+  //функция для замены только кнопки на блок статистики 
+  function showFormForRegisteredUser(user) {
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+  
+    if (user && !loggedInUserCardNumber) {
+      // Если пользователь зарегистрирован, но не авторизован      
+      replaceButtonWithStats();
+    } else {
+      // Если пользователь не зарегистрирован
+      restoreButton();
+    }
+  }
+  /*
+  //слушатель submit на форму card
+  const checkCardForm = document.querySelector('.card__form');
+  checkCardForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // 1. Собираем данные с формы
+    const inputNameValue = document.querySelector('.input-name').value;
+    //console.log(inputNameValue);
+    const inputCardValue = document.querySelector('.input-card').value;
+    //console.log(inputCardValue);
+
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      const user = JSON.parse(localStorage.getItem(key));
+      //const fullName = `${user.firstName} ${user.lastName}`;
+  
+      if (inputNameValue === user.firstName && inputCardValue === user.cardNumber) {
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        if (!loggedInUserCardNumber) {
+  
+          // Пользователь зарегистрирован, но не авторизован
+          replaceButtonWithStats();
+  
+          setTimeout(() => {
+            restoreButton();
+            document.querySelector('.input-name').value = "";
+            document.querySelector('.input-card').value = "";
+          }, 10000);
+  
+          break;
+        }
+      }
+    }
+  });
+  */
 
   //НЕ ТРОГАТЬ!!!!
 });
