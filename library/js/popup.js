@@ -233,8 +233,8 @@ document.addEventListener("DOMContentLoaded", function() {
     booksElement.textContent = user.countBooks;
 
     // Обновляем номер карты
-    cardNumberProfileModalElement.textContent = user.cardNumber;
-  }
+    cardNumberProfileModalElement.textContent = user.cardNumber;    
+}
   //функция обновления блока профиля
   function updateProfileBlock(user) {
     const profileBlock = document.querySelector('.account__front');
@@ -520,6 +520,8 @@ document.addEventListener("DOMContentLoaded", function() {
     user.isBuy = true;
     localStorage.setItem(loggedInUserCardNumber, JSON.stringify(user));
   })
+
+
   //Buy books---------------------------//
   //функция обновления кнопки buy в library card
   function updateButtonOwn(button) {
@@ -555,18 +557,17 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
           resetButtonOwn(button)
         }
+
+        //обновляем данные в счетчике книг в library card
         updateCountBooksInCard();
-        
-        // Меняем статус кнопки
-        //button.textContent = "Own";
-        //button.classList.add('button_own');
 
         // Добавляем книгу в список rented
-        //const rentedList = document.querySelector('.rented__list');
-        //const listItem = document.createElement('li');
-        //listItem.classList.add('rented__item');
-        //listItem.textContent = `${bookTitle}, ${bookAuthor}`;
-        //rentedList.appendChild(listItem);
+        const rentedListElement = document.querySelector('.rented__list');
+        console.log(rentedListElement);
+        const listItem = document.createElement('li');
+        listItem.classList.add('rented__item');
+        listItem.textContent = `${bookTitle}, ${bookAuthor}`;
+        rentedListElement.appendChild(listItem);
         }
       });
     });

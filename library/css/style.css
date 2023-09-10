@@ -450,6 +450,10 @@ body {
   letter-spacing: 2px;
   text-transform: capitalize;
   padding-left: 30px;
+  height: 60px;
+  max-width: 370px;
+  overflow: auto;
+  white-space: nowrap;
 }
 .rented__item {
   position: relative;
