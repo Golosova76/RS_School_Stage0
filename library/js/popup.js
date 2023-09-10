@@ -600,5 +600,22 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   //Buy books---------------------------//
 
+  //копирование номера карты
+  const copyButton = document.querySelector('.copy-number__buttom');
+  const textElement = document.querySelector('.copy-number__card');
+
+  copyButton.addEventListener('click', function() {
+      // Копирование текста в буфер обмена
+      const textarea = document.createElement('textarea');
+      textarea.value = textElement.textContent;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+
+      // Вывод сообщения пользователю
+      alert('Number card is copy!');
+  });
+
   //НЕ ТРОГАТЬ!!!!
 });
