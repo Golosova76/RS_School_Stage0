@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function() {
           nextActiveTab.style.visibility = 'visible';
           nextActiveTab.style.opacity = '1';  // Инициируем появление следующей вкладки
           nextActiveTab.classList.add('tab-active');  // Добавляем класс к следующей вкладке
-        }, 1000);  // Задержка равна времени анимации, установленной в CSS (1s)
+        }, 800);  // Задержка равна времени анимации, установленной в CSS (1s)
       } else {
         nextActiveTab.style.visibility = 'visible';
         nextActiveTab.style.opacity = '1';  // Просто инициируем появление, если нет текущей активной вкладки
@@ -211,25 +211,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
   
-/*
-  //dropMenu before register
-  const buttonRegister = document.querySelector('.profile-header__image');
-  const openRegister = document.querySelector('.account');
-
-  if (buttonRegister) {
-    buttonRegister.addEventListener("click", function (e) {
-      openRegister.classList.toggle('profile-active');
-    });
-  }
-
-  document.addEventListener('click', function(event) {
-    let isClickInsideProfile = buttonRegister.contains(event.target);
-    let isClickOnProfile = openRegister.contains(event.target);
-
-    if (!isClickInsideProfile && !isClickOnProfile && openRegister.classList.contains('profile-active')) {
-      openRegister.classList.remove('profile-active');
-    }
-  }); 
-*/
-  //НЕ ТРОГАТЬ======///// 
 });
