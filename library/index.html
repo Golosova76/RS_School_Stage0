@@ -9,6 +9,184 @@
   </head>
   <body>
     <div class="wrapper">
+      <div class="modal modal-login" id="modal-login">
+        <div class="modal-login__body">
+          <div class="modal-login__content">
+            <div class="modal-login__header header-modal">
+              <div class="header-modal__title">Login</div>
+              <button class="header-modal__button popup-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path d="M2 16.8506L17 1.99987" stroke="#0C0C0E" stroke-width="3" />
+                  <path d="M2 2.14941L17 17.0001" stroke="#0C0C0E" stroke-width="3" />
+                </svg>
+              </button>
+            </div>
+            <form class="modal-login__form form-login" action="#">
+              <label class="form-login__label">
+                <span class="form-login__span">E-mail or readers card</span>
+                <input class="form-login__input" name="identifier" type="text" required />
+              </label>
+              <label class="form-login__label">
+                <span class="form-login__span">Password</span>
+                <input class="form-login__input" name="password-login" type="password" minlength="8" required />
+              </label>
+              <button class="form-login__button button" type="submit">Log In</button>
+            </form>
+            <div class="modal-login__choice">
+              <span class="modal-login__text">Don’t have an account?</span>
+              <button href="#" class="modal-login__link register profile-action">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-register" id="modal-register">
+        <div class="modal-register__body">
+          <div class="modal-register__content">
+            <div class="modal-register__header header-modal">
+              <div class="header-modal__title">Register</div>
+              <button class="header-modal__button popup-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path d="M2 16.8506L17 1.99987" stroke="#0C0C0E" stroke-width="3" />
+                  <path d="M2 2.14941L17 17.0001" stroke="#0C0C0E" stroke-width="3" />
+                </svg>
+              </button>
+            </div>
+            <form class="modal-register__form form-login" action="#">
+              <label class="form-login__label">
+                <span class="form-login__span">First name</span>
+                <input class="form-login__input" name="firstName" type="text" required />
+              </label>
+              <label class="form-login__label">
+                <span class="form-login__span">Last name</span>
+                <input class="form-login__input" name="lastName" type="text" required />
+              </label>
+              <label class="form-login__label">
+                <span class="form-login__span">E-mail</span>
+                <input class="form-login__input" name="email" type="email" required />
+              </label>
+              <label class="form-login__label">
+                <span class="form-login__span">Password</span>
+                <input class="form-login__input" name="password" type="password" minlength="8" required />
+              </label>
+              <button class="form-login__button button form-login__button_big" type="submit">Sign Up</button>
+            </form>
+            <div class="modal-register__choice">
+              <span class="modal-register__text">Already have an account?</span>
+              <button href="#" class="modal-register__link login profile-action">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-profile" id="modal-profile">
+        <div class="modal-profile__body">
+          <div class="modal-profile__content">
+            <div class="modal-profile__left">
+              <div class="modal-profile__initials">JD</div>
+              <div class="modal-profile__name">John Doe</div>
+            </div>
+            <div class="modal-profile__right profile-stats">
+              <div class="profile-stats__header header-modal">
+                <div class="header-modal__title header-modal__title_profile">My profile</div>
+                <button class="header-modal__button header-modal__button_profile popup-close">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                    <path d="M2 16.8506L17 1.99987" stroke="#0C0C0E" stroke-width="3" />
+                    <path d="M2 2.14941L17 17.0001" stroke="#0C0C0E" stroke-width="3" />
+                  </svg>
+                </button>
+              </div>
+              <ul class="profile-stats__list">
+                <li class="profile-stats__item">
+                  <span class="profile-stats__title">Visits</span>
+                  <img src="img/library-card/icons/visit.svg" alt="visits" />
+                  <span class="profile-stats__count count-visits">23</span>
+                </li>
+                <li class="profile-stats__item">
+                  <span class="profile-stats__title">Bonuses</span>
+                  <img src="img/library-card/icons/bonus.svg" alt="bonus" />
+                  <span class="profile-stats__count">1240</span>
+                </li>
+                <li class="profile-stats__item">
+                  <span class="profile-stats__title">Books</span>
+                  <img src="img/library-card/icons/book.svg" alt="book" />
+                  <span class="profile-stats__count count-books">2</span>
+                </li>
+              </ul>
+              <div class="profile-stats__rented rented">
+                <div class="rented__title">Rented books</div>
+                <ul class="rented__list">
+                  <li class="rented__item">The Last Queen, Clive Irving</li>
+                  <li class="rented__item">Dominicana, Angie Cruz</li>
+                </ul>
+              </div>
+              <div class="profile-stats__copy copy-number">
+                <span class="copy-number__text">Card number</span>
+                <span class="copy-number__card">F00234030</span>
+                <button class="copy-number__buttom">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                    <rect x="2.46826" y="0.25" width="10.5917" height="9.5" rx="0.75" stroke="black" stroke-width="0.5" />
+                    <rect x="0.25" y="2.25" width="10.5917" height="9.5" rx="0.75" fill="white" stroke="black" stroke-width="0.5" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal modal-card" id="modal-card">
+        <div class="modal-card__body">
+          <div class="modal-card__content">
+            <div class="modal-card__header header-modal">
+              <div class="header-modal__title header-modal__title_card">Buy a library card</div>
+              <button class="header-modal__button header-modal__button_card popup-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                  <path d="M2 16.8507L17 2" stroke="white" stroke-width="3" />
+                  <path d="M2 2.14929L17 17" stroke="white" stroke-width="3" />
+                </svg>
+              </button>
+            </div>
+            <div class="modal-card__column">
+              <div class="modal-card__forms">
+                <form class="modal-card__form form-login form-card" action="#">
+                  <label class="form-login__label">
+                    <span class="form-login__span">Bank card number</span>
+                    <input class="form-login__input bank-card" type="text" required />
+                  </label>
+                  <span class="form-login__span form-login__span_single">Expiration code</span>
+                  <div class="form-login__two">
+                    <label class="form-login__label">
+                      <input class="form-login__input" type="text" required />
+                    </label>
+                    <label class="form-login__label">
+                      <input class="form-login__input" type="text" required />
+                    </label>
+                  </div>
+                  <label class="form-login__label">
+                    <span class="form-login__span">CVC</span>
+                    <input class="form-login__input form-login__input_cvc" type="text" required />
+                  </label>
+                  <label class="form-login__label">
+                    <span class="form-login__span">Cardholder name</span>
+                    <input class="form-login__input" type="text" required />
+                  </label>
+                  <label class="form-login__label">
+                    <span class="form-login__span">Postal code</span>
+                    <input class="form-login__input" type="text" required />
+                  </label>
+                  <label class="form-login__label">
+                    <span class="form-login__span">City / Town</span>
+                    <input class="form-login__input" type="text" required />
+                  </label>
+                  <div class="form-login__buy">
+                    <button class="form-login__button button button-buy-card form-login__button_buy" type="submit">Buy</button>
+                    <span class="form-login__price">$ 25.00</span>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-card__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.</div>
+            </div>
+          </div>
+        </div>
+      </div>
       <header class="header">
         <div class="header__container">
           <h1 class="header__title">Brooklyn Public Library</h1>
@@ -33,8 +211,18 @@
               </ul>
             </nav>
           </div>
-          <div class="header__image">
-            <img src="img/header/profile.svg" alt="profile" />
+          <div class="header__profile profile-header">
+            <div class="profile-header__image" title>
+              <img src="img/header/profile.svg" alt="profile" />
+            </div>
+            <div class="profile-header__account account">
+              <div class="account__front">
+                <div class="account__title">Profile</div>
+                <button class="account__log-in login profile-action open-profile" type="button">Log In</button>
+                <button class="account__register register profile-action" type="button">Register</button>
+              </div>
+              <div class="account__back"></div>
+            </div>
           </div>
           <button class="menu__icon icon-menu" type="button"><span></span></button>
         </div>
@@ -84,11 +272,11 @@
                 </div>
               </div>
               <!-- If we need navigation buttons -->
-              <div class="slider-main-block__navigation swiper-button-prev"></div>
+              <div class="slider-main-block__navigation swiper-button-prev disabled"></div>
               <div class="slider-main-block__navigation swiper-button-next"></div>
               <!-- If we need pagination -->
               <div class="slider-main-block__circles">
-                <div class="slider-main-block__circle swiper-button-one"></div>
+                <div class="slider-main-block__circle swiper-button-one slide-active"></div>
                 <div class="slider-main-block__circle swiper-button-two"></div>
                 <div class="slider-main-block__circle swiper-button-three"></div>
                 <div class="slider-main-block__circle swiper-button-four"></div>
@@ -103,267 +291,265 @@
               <h2 class="header-main__title">Favorites</h2>
             </div>
             <div class="favorites__text">Pick favorites of season</div>
-            <div class="favorites__tabs tabs">
-              <div class="tabs__nav">
-                <label class="tabs__label">
-                  <input class="tabs__input" type="radio" name="tabs" value="winter" checked />
-                  <span class="tabs__box"></span>
-                  <span class="tabs__text">Winter</span>
-                </label>
-                <label class="tabs__label">
-                  <input class="tabs__input" type="radio" name="tabs" value="spring" />
-                  <span class="tabs__box"></span>
-                  <span class="tabs__text">Spring</span>
-                </label>
-                <label class="tabs__label">
-                  <input class="tabs__input" type="radio" name="tabs" value="summer" />
-                  <span class="tabs__box"></span>
-                  <span class="tabs__text">Summer</span>
-                </label>
-                <label class="tabs__label">
-                  <input class="tabs__input" type="radio" name="tabs" value="autumn" />
-                  <span class="tabs__box"></span>
-                  <span class="tabs__text">Autumn</span>
-                </label>
+            <div class="tabs__nav">
+              <label class="tabs__label tab-active">
+                <input class="tabs__input" type="radio" name="tabs" value="winter" checked />
+                <span class="tabs__box"></span>
+                <span class="tabs__text">Winter</span>
+              </label>
+              <label class="tabs__label">
+                <input class="tabs__input" type="radio" name="tabs" value="spring" />
+                <span class="tabs__box"></span>
+                <span class="tabs__text">Spring</span>
+              </label>
+              <label class="tabs__label">
+                <input class="tabs__input" type="radio" name="tabs" value="summer" />
+                <span class="tabs__box"></span>
+                <span class="tabs__text">Summer</span>
+              </label>
+              <label class="tabs__label">
+                <input class="tabs__input" type="radio" name="tabs" value="autumn" />
+                <span class="tabs__box"></span>
+                <span class="tabs__text">Autumn</span>
+              </label>
+            </div>
+            <div class="tabs__body">
+              <div class="tabs__item item-tabs item-tabs_winter tab-active">
+                <div class="item-tabs__items">
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">The Book Eaters</span>
+                        <span class="item-tabs__dean">By Sunyi Dean</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/winter/first.jpg" alt="First books" />
+                    </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Cackle</span>
+                        <span class="item-tabs__dean">By Rachel Harrison</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/winter/second.jpg" alt="Second books" />
+                    </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Dante: Poet of the Secular World</span>
+                        <span class="item-tabs__dean">By Erich Auerbach</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/winter/third.jpg" alt="Third books" />
+                    </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">The Last Queen</span>
+                        <span class="item-tabs__dean">By Clive Irving</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/winter/fourth.jpg" alt="Fourth books" />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="tabs__body">
-                <div class="tabs__item item-tabs item-tabs_winter">
-                  <div class="item-tabs__items">
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">The Book Eaters</span>
-                          <span class="item-tabs__dean">By Sunyi Dean</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/winter/first.jpg" alt="First books" />
-                      </div>
+              <div class="tabs__item item-tabs item-tabs_spring">
+                <div class="item-tabs__items">
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">The Body</span>
+                        <span class="item-tabs__dean">By Stephen King</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/spring/first.jpg" alt="First books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Cackle</span>
-                          <span class="item-tabs__dean">By Rachel Harrison</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/winter/second.jpg" alt="Second books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Carry: A Memoir of Survival on Stolen Land</span>
+                        <span class="item-tabs__dean">By Toni Jenson</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/spring/second.jpg" alt="Second books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Dante: Poet of the Secular World</span>
-                          <span class="item-tabs__dean">By Erich Auerbach</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/winter/third.jpg" alt="Third books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Days of Distraction</span>
+                        <span class="item-tabs__dean">By Alexandra Chang</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/spring/third.jpg" alt="Third books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">The Last Queen</span>
-                          <span class="item-tabs__dean">By Clive Irving</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</div>
-                      <button class="item-tabs__button button button_own" disabled type="button">Own</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/winter/fourth.jpg" alt="Fourth books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Dominicana</span>
+                        <span class="item-tabs__dean">By Angie Cruz</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/spring/fourth.jpg" alt="Fourth books" />
                     </div>
                   </div>
                 </div>
-                <div class="tabs__item item-tabs item-tabs_spring" hidden>
-                  <div class="item-tabs__items">
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">The Body</span>
-                          <span class="item-tabs__dean">By Stephen King</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Powerful novel that takes you back to a nostalgic time, exploring both the beauty and danger and loss of innocence that is youth.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/spring/first.jpg" alt="First books" />
-                      </div>
+              </div>
+              <div class="tabs__item item-tabs item-tabs_summer">
+                <div class="item-tabs__items">
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Crude: A Memoir</span>
+                        <span class="item-tabs__dean">By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/summer/first.jpg" alt="First books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Carry: A Memoir of Survival on Stolen Land</span>
-                          <span class="item-tabs__dean">By Toni Jenson</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">This memoir about the author's relationship with gun violence feels both expansive and intimate, resulting in a lyrical indictment of the way things are.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/spring/second.jpg" alt="Second books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Let My People Go Surfing</span>
+                        <span class="item-tabs__dean">By Yvon Chouinard</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/summer/second.jpg" alt="Second books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Days of Distraction</span>
-                          <span class="item-tabs__dean">By Alexandra Chang</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">A sardonic view of Silicon Valley culture, a meditation on race, and a journal of displacement and belonging, all in one form-defying package of spare prose.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/spring/third.jpg" alt="Third books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">The Octopus Museum: Poems</span>
+                        <span class="item-tabs__dean">By Brenda Shaughnessy</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</div>
+                    <button class="item-tabs__button login profile-action open-card button" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/summer/third.jpg" alt="Third books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Dominicana</span>
-                          <span class="item-tabs__dean">By Angie Cruz</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</div>
-                      <button class="item-tabs__button button button_own" disabled type="button">Own</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/spring/fourth.jpg" alt="Fourth books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Shark Dialogues: A Novel</span>
+                        <span class="item-tabs__dean">By Kiana Davenport</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/summer/fourth.jpg" alt="Fourth books" />
                     </div>
                   </div>
                 </div>
-                <div class="tabs__item item-tabs item-tabs_summer" hidden>
-                  <div class="item-tabs__items">
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Crude: A Memoir</span>
-                          <span class="item-tabs__dean">By Pablo Fajardo & ​​Sophie Tardy-Joubert</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Drawing and color by Damien Roudeau | This book illustrates the struggles of a group of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage their oil fields did to the Amazon and her people</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/summer/first.jpg" alt="First books" />
-                      </div>
-                    </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Let My People Go Surfing</span>
-                          <span class="item-tabs__dean">By Yvon Chouinard</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Chouinard—climber, businessman, environmentalist—shares tales of courage and persistence from his experience of founding and leading Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10 More Years of Business Unusual.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/summer/second.jpg" alt="Second books" />
-                      </div>
-                    </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">The Octopus Museum: Poems</span>
-                          <span class="item-tabs__dean">By Brenda Shaughnessy</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">This collection of bold and scathingly beautiful feminist poems imagines what comes after our current age of environmental destruction, racism, sexism, and divisive politics.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/summer/third.jpg" alt="Third books" />
-                      </div>
-                    </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Shark Dialogues: A Novel</span>
-                          <span class="item-tabs__dean">By Kiana Davenport</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">An epic saga of seven generations of one family encompasses the tumultuous history of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic tale of villains and dreamers, queens and revolutionaries, lepers and healers.</div>
-                      <button class="item-tabs__button button button_own" disabled type="button">Own</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/summer/fourth.jpg" alt="Fourth books" />
-                      </div>
+              </div>
+              <div class="tabs__item item-tabs item-tabs_autumn">
+                <div class="item-tabs__items">
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Casual Conversation</span>
+                        <span class="item-tabs__dean">By Renia White</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.</div>
+                    <button class="item-tabs__button button login open-card profile-action" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/autumn/first.jpg" alt="First books" />
                     </div>
                   </div>
-                </div>
-                <div class="tabs__item item-tabs item-tabs_autumn" hidden>
-                  <div class="item-tabs__items">
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Casual Conversation</span>
-                          <span class="item-tabs__dean">By Renia White</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">White's impressive debut collection takes readers through and beyond the concepts of conversation and the casual - both what we say to each other and what we don't, examining the possibilities around how we construct and communicate identity.</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/autumn/first.jpg" alt="First books" />
-                      </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">The Great Fire</span>
+                        <span class="item-tabs__dean">By Lou Ureneck</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide</div>
+                    <button class="item-tabs__button button login open-card profile-action" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/autumn/second.jpg" alt="Second books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">The Great Fire</span>
-                          <span class="item-tabs__dean">By Lou Ureneck</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">The harrowing story of an ordinary American and a principled Naval officer who, horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a quarter of a million refugees from the Armenian Genocide</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/autumn/second.jpg" alt="Second books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Rickey: The Life and Legend</span>
+                        <span class="item-tabs__dean">By Howard Bryant</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/autumn/third.jpg" alt="Third books" />
                     </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Rickey: The Life and Legend</span>
-                          <span class="item-tabs__dean">By Howard Bryant</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">With the fall rolling around, one can't help but think of baseball's postseason coming up! And what better way to prepare for it than reading the biography of one of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</div>
-                      <button class="item-tabs__button button" type="button">Buy</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/autumn/third.jpg" alt="Third books" />
-                      </div>
-                    </div>
-                    <div class="item-tabs__item">
-                      <div class="item-tabs__subtitle">Staff Picks</div>
-                      <h3 class="item-tabs__title">
-                        <a class="item-tabs__link" href="#" target="_blank">
-                          <span class="item-tabs__eaters">Slug: And Other Stories</span>
-                          <span class="item-tabs__dean">By Megan Milks</span>
-                        </a>
-                      </h3>
-                      <div class="item-tabs__text">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</div>
-                      <button class="item-tabs__button button button_own" disabled type="button">Own</button>
-                      <div class="item-tabs__image-ibg">
-                        <img src="img/favorites/autumn/fourth.jpg" alt="Fourth books" />
-                      </div>
+                  </div>
+                  <div class="item-tabs__item">
+                    <div class="item-tabs__subtitle">Staff Picks</div>
+                    <h3 class="item-tabs__title">
+                      <a class="item-tabs__link" href="#" target="_blank">
+                        <span class="item-tabs__eaters">Slug: And Other Stories</span>
+                        <span class="item-tabs__dean">By Megan Milks</span>
+                      </a>
+                    </h3>
+                    <div class="item-tabs__text">Exes Tegan and Sara find themselves chained together by hairballs of codependency. A father and child experience the shared trauma of giving birth to gods from their wounds.</div>
+                    <button class="item-tabs__button button login profile-action open-card" type="button">Buy</button>
+                    <div class="item-tabs__image-ibg">
+                      <img src="img/favorites/autumn/fourth.jpg" alt="Fourth books" />
                     </div>
                   </div>
                 </div>
@@ -487,19 +673,19 @@
                   <div class="card__column">
                     <fieldset class="card__fieldset">
                       <legend class="card__title">Brooklyn Public Library</legend>
-                      <input class="card__input" type="text" placeholder="Reader's name " />
-                      <input class="card__input" type="text" placeholder="Card number" />
+                      <input class="card__input input-name" title="firstName lastName" type="text" placeholder="Reader's name" />
+                      <input class="card__input input-card" type="text" placeholder="Card number" />
                     </fieldset>
                   </div>
-                  <button class="card__button button card__button_big" type="button">Check the card</button>
+                  <button class="card__button button card__button_big" type="submit">Check the card</button>
                 </form>
               </div>
               <div class="library-cards__account">
                 <div class="library-cards__get">Get a reader card</div>
                 <div class="library-cards__text">You will be able to see a reader card after logging into account or you can register a new account</div>
                 <div class="library-cards__buttons">
-                  <button class="library-cards__button button" type="button">Sign Up</button>
-                  <button class="library-cards__button button" type="button">Log in</button>
+                  <button class="library-cards__button button register profile-action" type="button">Sign Up</button>
+                  <button class="library-cards__button button open-profile-card login profile-action" type="button">Log in</button>
                 </div>
               </div>
             </div>
@@ -553,5 +739,7 @@
       </footer>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/dropMenu.js"></script>
+    <script src="js/popup.js"></script>
   </body>
 </html>
