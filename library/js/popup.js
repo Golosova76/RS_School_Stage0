@@ -3,6 +3,8 @@
 document.addEventListener("DOMContentLoaded", function() {  
 
   let savedButtonElement = null;
+  //собираю коллекцию кнопок buy для покупки книг
+  const openBuyCardAfterButtons = document.querySelectorAll('.open-card');
 
   function closeAllPopups() {
     const allPopups = document.querySelectorAll('.modal.popup-open');
@@ -446,6 +448,11 @@ document.addEventListener("DOMContentLoaded", function() {
       icon.src = `img/library-card/icons/${item.icon}`;
       icon.alt = item.title.toLowerCase();
 
+      // Если текущий элемент статистики это количество книг, добавляем дополнительный класс
+      if (item.title === 'Books') {
+        listItem.classList.add('count-books-card');
+      }
+
       const count = document.createElement('span');
       count.className = 'card__stats-count';
       count.textContent = item.count;
@@ -513,6 +520,70 @@ document.addEventListener("DOMContentLoaded", function() {
     user.isBuy = true;
     localStorage.setItem(loggedInUserCardNumber, JSON.stringify(user));
   })
+  //Buy books---------------------------//
+  //функция обновления кнопки buy в library card
+  function updateButtonOwn(button) {
+    button.textContent = "Own";
+    button.classList.add('button_own');
+  }
+  //функция возврата кнопки buy в library card
+  function resetButtonOwn(button) {
+    button.textContent = "Buy";
+    button.classList.remove('button_own');
+  }
+  //добавление книг и количества в localStorage 
+  if (openBuyCardAfterButtons.length > 0) {
+    openBuyCardAfterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+        if (user.isBuy) {
+        // Извлекаем название и автора напрямую из текущего блока
+        const bookTitle = button.closest('.item-tabs__item').querySelector('.item-tabs__eaters').textContent;
+        const bookAuthor = button.closest('.item-tabs__item').querySelector('.item-tabs__dean').textContent.replace('By ', '');        
+
+        // Добавляем книгу в список пользователя и обновляем localStorage
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+        user.countBooks += 1;
+        user.books.push({ title: bookTitle, author: bookAuthor });
+        localStorage.setItem(loggedInUserCardNumber, JSON.stringify(user));
+
+        //меняем статус кнопки
+        if (user) {
+          updateButtonOwn(button);
+        } else {
+          resetButtonOwn(button)
+        }
+        updateCountBooksInCard();
+        
+        // Меняем статус кнопки
+        //button.textContent = "Own";
+        //button.classList.add('button_own');
+
+        // Добавляем книгу в список rented
+        //const rentedList = document.querySelector('.rented__list');
+        //const listItem = document.createElement('li');
+        //listItem.classList.add('rented__item');
+        //listItem.textContent = `${bookTitle}, ${bookAuthor}`;
+        //rentedList.appendChild(listItem);
+        }
+      });
+    });
+  }
+  //функция обновления данных в счетчике книг в library card
+  function updateCountBooksInCard() {
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+    // Находим элемент, который нужно обновить
+    const statsBlockCard = document.querySelector('.card__stats-list')
+    const booksListItem = statsBlockCard.querySelector('.count-books-card');
+    // Находим элемент счетчика внутри этого элемента списка
+    const booksElement = booksListItem.querySelector('.card__stats-count');
+    //обновляем количество книг
+    booksElement.textContent = user.countBooks;
+  }
+  //Buy books---------------------------//
 
   //НЕ ТРОГАТЬ!!!!
 });

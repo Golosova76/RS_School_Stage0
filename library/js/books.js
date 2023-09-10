@@ -1,6 +1,6 @@
 "use strict"
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {  
   // Функция для проверки и обновления состояния кнопки при загрузке страницы
   function updateButtonState(button) {
     const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
@@ -23,11 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
   if (openBuyCardAfterButtons.length > 0) {
     openBuyCardAfterButtons.forEach(button => {
       button.addEventListener('click', () => {
+        const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+        const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+        if (user.isBuy) {
         // Извлекаем название и автора напрямую из текущего блока
         const bookTitle = button.closest('.item-tabs__item').querySelector('.item-tabs__eaters').textContent;
-        const bookAuthor = button.closest('.item-tabs__item').querySelector('.item-tabs__dean').textContent.replace('By ', '');
-        console.log(bookTitle);
-        console.log(bookAuthor);
+        const bookAuthor = button.closest('.item-tabs__item').querySelector('.item-tabs__dean').textContent.replace('By ', '');        
 
         // Добавляем книгу в список пользователя и обновляем localStorage
         const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
@@ -39,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Меняем статус кнопки
         button.textContent = "Own";
         button.classList.add('button_own');
-        //button.disabled = true;
+
+        updateStatsDisplay(loggedInUserCardNumber);
 
         // Добавляем книгу в список rented
         //const rentedList = document.querySelector('.rented__list');
@@ -47,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function() {
         //listItem.classList.add('rented__item');
         //listItem.textContent = `${bookTitle}, ${bookAuthor}`;
         //rentedList.appendChild(listItem);
+        }
       });
+      
     });
   }
 
