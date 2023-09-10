@@ -542,7 +542,6 @@ document.addEventListener("DOMContentLoaded", function() {
         updateCountBooksInCard();
         // Добавляем книгу в список rented
         const rentedListElement = document.querySelector('.rented__list');
-        console.log(rentedListElement);
         const listItem = document.createElement('li');
         listItem.classList.add('rented__item');
         listItem.textContent = `${bookTitle}, ${bookAuthor}`;

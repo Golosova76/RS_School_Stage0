@@ -116,6 +116,14 @@
     position: absolute;
     top: -8px;
     right: -10px;
+    svg {
+      transition: transform 0.3s ease 0s;
+    }
+    &:hover {
+      svg {
+        transform: scale(1.3);
+      }
+    }
   }
 }
 
@@ -410,7 +418,7 @@
   // .profile-stats__rented
 
   &__rented {
-    margin-bottom: 41px;
+    margin-bottom: 27px;
   }
 
   // .profile-stats__copy
@@ -463,7 +471,7 @@
     letter-spacing: 2px;
     text-transform: capitalize;
     padding-left: 30px;
-    height: 60px;
+    height: 70px;
     max-width: 370px;
     overflow: auto;
     white-space: nowrap;
