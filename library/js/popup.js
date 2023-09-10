@@ -287,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function() {
           document.querySelector('.account').classList.remove('profile-active');
           showVisitProfileBlock(null);
           showFormCardBlock(null);
+          openBuyCardAfterButtons.forEach(resetButtonOwn);
         }
     }
   });
@@ -542,7 +543,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (user.isBuy) {
         // Извлекаем название и автора напрямую из текущего блока
         const bookTitle = button.closest('.item-tabs__item').querySelector('.item-tabs__eaters').textContent;
-        const bookAuthor = button.closest('.item-tabs__item').querySelector('.item-tabs__dean').textContent.replace('By ', '');        
+        const bookAuthor = button.closest('.item-tabs__item').querySelector('.item-tabs__dean').textContent.replace('By ', '');
 
         // Добавляем книгу в список пользователя и обновляем localStorage
         const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
@@ -583,6 +584,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const booksElement = booksListItem.querySelector('.card__stats-count');
     //обновляем количество книг
     booksElement.textContent = user.countBooks;
+  }
+  /////
+  //const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+  if (loggedInUserCardNumber) {
+      const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+      openBuyCardAfterButtons.forEach(button => {
+          const bookTitle = button.closest('.item-tabs__item').querySelector('.item-tabs__eaters').textContent;
+          if (user.books && user.books.some(book => book.title === bookTitle)) {
+              updateButtonOwn(button);
+          } else {
+              resetButtonOwn(button);
+          }
+      });
   }
   //Buy books---------------------------//
 
