@@ -1,0 +1,691 @@
+//============= modal login ===============//
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+  &.popup-open {
+    opacity: 1;
+    visibility: visible;
+    .modal-login__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+    .modal-register__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+    .modal-profile__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+    .modal-card__content {
+      opacity: 1;
+      transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+    }
+  }
+}
+.modal-login {
+  // .modal-login__body
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    min-height: 100%;
+    transition: all 0.8s ease 0s;
+  }
+
+  // .modal-login__content
+
+  &__content {
+    max-width: 250px;
+    background-color: #fff;
+    padding: 20px 25px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  }
+
+  // .modal-login__header
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  // .modal-login__form
+
+  &__form {
+    width: 200px;
+    .form-login__label {
+      height: 50px;
+    }
+  }
+
+  // .modal-login__choice
+
+  &__choice {
+  }
+
+  // .modal-login__text
+
+  &__text {
+    color: #000;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-size: 10px;
+    line-height: 1.1;
+    margin-right: 5px;
+  }
+
+  // .modal-login__link
+
+  &__link {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #000;
+  }
+}
+
+.header-modal {
+  position: relative;
+  // .header-modal__title
+
+  &__title {
+    @extend %forum;
+    line-height: 100%;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  // .header-modal__button
+
+  &__button {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+  }
+}
+
+//modal login
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  // .form-login__label
+
+  &__label {
+    display: block;
+  }
+
+  // .form-login__span
+
+  &__span {
+    display: block;
+    font-size: 15px;
+    line-height: 133.333%;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+  }
+
+  // .form-login__input
+
+  &__input {
+    border: 1px solid #bb945f;
+    height: 20px;
+    width: 100%;
+  }
+
+  // .form-login__button
+
+  &__button {
+    align-self: start;
+    text-transform: capitalize;
+    padding: 8px 19px;
+    margin-bottom: 2px;
+    margin-top: 10px;
+  }
+}
+
+//============= modal login ===============//
+
+//============= modal register ===============//
+.modal {
+}
+
+.modal-register {
+  // .modal-register__body
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    min-height: 100%;
+    transition: all 0.8s ease 0s;
+  }
+
+  // .modal-register__content
+
+  &__content {
+    max-width: 250px;
+    background-color: #fff;
+    padding: 20px 25px;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  }
+
+  // .modal-register__header
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  // .modal-register__form
+
+  &__form {
+    width: 200px;
+    .form-login__label {
+      height: 50px;
+    }
+  }
+
+  // .modal-register__choice
+
+  &__choice {
+  }
+
+  // .modal-register__text
+
+  &__text {
+    color: #000;
+    text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  // .modal-register__link
+
+  &__link {
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #000;
+  }
+}
+
+.header-modal {
+  // .header-modal__title
+
+  &__title {
+  }
+
+  // .header-modal__button
+
+  &__button {
+  }
+}
+
+//modal register
+.form-login {
+  // .form-login__label
+
+  &__label {
+  }
+
+  // .form-login__span
+
+  &__span {
+  }
+
+  // .form-login__input
+
+  &__input {
+    @extend %forum;
+    font-size: 14px;
+    line-height: 1.67;
+    letter-spacing: 0.6px;
+    padding: 2px 5px;
+    &:focus {
+      outline: 2px solid #944e4e;
+    }
+  }
+
+  // .form-login__button
+
+  &__button {
+    //.form-login__button_big
+    &_big {
+      padding: 8px 14px;
+    }
+  }
+}
+
+//============= modal register ===============//
+
+//============= modal profile ===============//
+.modal {
+}
+
+.modal-profile {
+  // .modal-profile__body
+
+  &__body {
+    display: flex;
+    //flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    min-height: 100%;
+    transition: all 0.8s ease 0s;
+  }
+
+  // .modal-profile__content
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    height: 400px;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  }
+
+  // .modal-profile__left
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0c0c0e;
+    width: 170px;
+    height: 100%;
+    //padding: 138px 25px;
+  }
+
+  // .modal-profile__initials
+
+  &__initials {
+    background-color: #fff;
+    color: #bb945f;
+    text-align: center;
+    padding: 30px 27px;
+    text-transform: capitalize;
+    line-height: 100%;
+    margin-bottom: 15px;
+  }
+
+  // .modal-profile__name
+
+  &__name {
+    padding: 5px 15px;
+    background-color: #fff;
+    color: #000;
+    text-transform: capitalize;
+    line-height: 100%;
+    max-width: 120px;
+    width: 100%;
+    //white-space: pre-wrap;
+    //height: 30px;
+  }
+
+  // .modal-profile__right
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    height: 100%;
+    padding: 0px 0px 0px 20px;
+  }
+}
+
+.profile-stats {
+  // .profile-stats__header
+
+  &__header {
+    margin-bottom: 35px;
+  }
+
+  // .profile-stats__list
+
+  &__list {
+    display: flex;
+    margin-bottom: 19px;
+    gap: 20px;
+  }
+
+  // .profile-stats__item
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 20px;
+      height: 21px;
+    }
+  }
+
+  // .profile-stats__title
+
+  &__title {
+    line-height: 100%;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+  }
+
+  // .profile-stats__count
+
+  &__count {
+    font-size: 10px;
+    line-height: 200%;
+    letter-spacing: 0.2px;
+  }
+
+  // .profile-stats__rented
+
+  &__rented {
+    margin-bottom: 41px;
+  }
+
+  // .profile-stats__copy
+
+  &__copy {
+  }
+}
+
+.header-modal {
+  // .header-modal__title
+
+  &__title {
+    // .header-modal__title_profile
+
+    &_profile {
+      color: #000;
+      font-size: 40px;
+      line-height: 50%;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-align: left;
+      padding-top: 40px;
+    }
+  }
+
+  // .header-modal__button
+
+  &__button {
+    //header-modal__button_profile
+    &_profile {
+      top: 21px;
+      right: 21px;
+    }
+  }
+}
+
+.rented {
+  // .rented__title
+
+  &__title {
+    font-size: 25px;
+    line-height: 80%;
+    margin-bottom: 30px;
+  }
+
+  // .rented__list
+
+  &__list {
+    line-height: 100%;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    padding-left: 30px;
+    height: 60px;
+    max-width: 370px;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  // .rented__item
+
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: -15px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+}
+
+.copy-number {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  // .copy-number__text
+
+  &__text {
+  }
+
+  // .copy-number__card
+
+  &__card {
+    color: #bb945f;
+  }
+
+  // .copy-number__buttom
+
+  &__buttom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      width: 13px;
+      height: 12px;
+    }
+  }
+}
+
+//============= modal profile ===============//
+
+//============= modal card ===============//
+.modal {
+}
+
+.modal-card {
+  // .modal-card__body
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 25px;
+    min-height: 100%;
+    transition: all 0.8s ease 0s;
+  }
+
+  // .modal-card__content
+
+  &__content {
+    max-width: 640px;
+    width: 100%;
+    height: 540px;
+    background-color: #fff;
+    transition: all 0.8s ease 0s;
+    opacity: 0;
+    transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  }
+
+  // .modal-card__header
+
+  &__header {
+    background-color: #0c0c0e;
+    min-height: 60px;
+  }
+
+  // .modal-card__column
+
+  &__column {
+    display: flex;
+    padding: 30px 35px 40px;
+    gap: 40px;
+  }
+
+  // .modal-card__forms
+
+  &__forms {
+    flex: 0 1 200px;
+  }
+
+  // .modal-card__form
+
+  &__form {
+    .form-login__span {
+      margin-bottom: 6px;
+    }
+    .form-login__span_single {
+      margin-bottom: 1px;
+    }
+  }
+
+  // .modal-card__text
+
+  &__text {
+    flex: 0 1 330px;
+    font-size: 15px;
+    line-height: 133.333%;
+    letter-spacing: 2px;
+    color: #8e8e8e;
+  }
+}
+
+.header-modal {
+  // .header-modal__title
+
+  &__title {
+    //.header-modal__title_card
+    &_card {
+      padding: 20px;
+      font-size: 40px;
+      line-height: 50%;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  // .header-modal__button
+
+  &__button {
+    // .header-modal__button_card
+
+    &_card {
+      top: 23px;
+      right: 19px;
+    }
+  }
+}
+//modal card
+.form-login {
+  // .form-login__label
+
+  &__label {
+  }
+
+  // .form-login__span
+
+  &__span {
+    //.form-login__span_single
+    &_single {
+      margin-bottom: 0;
+    }
+  }
+
+  // .form-login__input
+
+  &__input {
+    //.form-login__input_cvc
+    &_cvc {
+      width: 45px;
+      margin-bottom: 10px;
+    }
+  }
+
+  // .form-login__two
+
+  &__two {
+    display: flex;
+    gap: 10px;
+    & .form-login__input {
+      width: 45px;
+      height: 20px;
+    }
+  }
+
+  // .form-login__buy
+
+  &__buy {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+  }
+
+  // .form-login__button
+
+  &__button {
+    // .form-login__button_buy
+
+    &_buy {
+      padding: 8px 26px;
+    }
+  }
+
+  // .form-login__price
+
+  &__price {
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+.button-buy-card[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+//============= modal card ===============//
