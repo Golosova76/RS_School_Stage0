@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
   let savedButtonElement = null;
   //собираю коллекцию кнопок buy для покупки книг
   const openBuyCardAfterButtons = document.querySelectorAll('.open-card');
+  //обновляем список книг в my profile
+  restoreRentedBooksFromLocalStorage();
 
   function closeAllPopups() {
     const allPopups = document.querySelectorAll('.modal.popup-open');
@@ -585,8 +587,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //обновляем количество книг
     booksElement.textContent = user.countBooks;
   }
-  /////
-  //const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+  //
   if (loggedInUserCardNumber) {
       const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
       openBuyCardAfterButtons.forEach(button => {
@@ -598,12 +599,31 @@ document.addEventListener("DOMContentLoaded", function() {
           }
       });
   }
+  //фукнция для загрузки и обновления списка книг
+  function restoreRentedBooksFromLocalStorage() {
+    const loggedInUserCardNumber = localStorage.getItem("loggedInUser");
+    if (!loggedInUserCardNumber) return;  // Если пользователь не авторизован, прерываем функцию
+
+    const user = JSON.parse(localStorage.getItem(loggedInUserCardNumber));
+    if (!user || !user.books) return; // Если нет данных о книгах пользователя, прерываем функцию
+
+    const rentedListElement = document.querySelector('.rented__list');
+    // Очищаем текущий список
+    rentedListElement.innerHTML = '';
+
+    // Восстанавливаем список из localStorage
+    user.books.forEach(book => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('rented__item');
+        listItem.textContent = `${book.title}, ${book.author}`;
+        rentedListElement.appendChild(listItem);
+    });
+  }
   //Buy books---------------------------//
 
-  //копирование номера карты
+  //копирование номера карты по клику на кнопку
   const copyButton = document.querySelector('.copy-number__buttom');
   const textElement = document.querySelector('.copy-number__card');
-
   copyButton.addEventListener('click', function() {
       // Копирование текста в буфер обмена
       const textarea = document.createElement('textarea');
@@ -612,7 +632,6 @@ document.addEventListener("DOMContentLoaded", function() {
       textarea.select();
       document.execCommand('copy');
       document.body.removeChild(textarea);
-
       // Вывод сообщения пользователю
       alert('Number card is copy!');
   });
