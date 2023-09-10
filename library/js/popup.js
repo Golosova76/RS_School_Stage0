@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const openBuyCardAfterButtons = document.querySelectorAll('.open-card');
   //обновляем список книг в my profile
   restoreRentedBooksFromLocalStorage();
+  updateButtonStatesBasedOnUserBooks()
 
   function closeAllPopups() {
     const allPopups = document.querySelectorAll('.modal.popup-open');
