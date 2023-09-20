@@ -32,18 +32,6 @@ $mainColor: #333333;
   max-width: 1270px; // (padding 30px)
   margin: 0px auto;
   padding: 0px 15px;
-  @media (max-width: 1199.98px) {
-    //max-width: 970px;
-  }
-  @media (max-width: 1087px) {
-    // max-width: 970px;
-  }
-  @media (max-width: 991.98px) {
-    //max-width: 750px;
-  }
-  @media (max-width: 767.98px) {
-    //max-width: none;
-  }
 }
 
 button {
@@ -51,9 +39,6 @@ button {
   &:hover {
     transform: scale(1.1);
   }
-}
-
-.header {
 }
 
 .page {
