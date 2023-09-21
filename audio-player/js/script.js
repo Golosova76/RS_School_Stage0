@@ -6,6 +6,7 @@ const nextButton = document.querySelector('.next-button img');
 const repeatButton = document.querySelector('.repeat-button img');
 const volumeButton = document.querySelector('.volume-button img');
 const progressBar = document.querySelector('.progress');
+const progressContainer = document.querySelector('.progress-bar');
 const currentTimeSpan = document.querySelector('.current-time');
 const durationSpan = document.querySelector('.duration');
 const trackTitleSpan = document.querySelector('.track-title');
@@ -103,11 +104,31 @@ function toggleRepeat() {
   if (isRepeatEnabled) {
     audio.setAttribute('loop', 'true');
     console.log('Repeat is enabled');
+    repeatButton.classList.add('active');
   } else {
     audio.removeAttribute('loop');
     console.log('Repeat is disabled');
+    repeatButton.classList.remove('active');
   }
 }
+
+progressContainer.addEventListener('click', (event) => {
+  const progressBarRect = progressContainer.getBoundingClientRect();
+  const clickX = event.clientX - progressBarRect.left;
+  const progressPercentage = (clickX / progressBarRect.width) * 100;
+  progressBar.style.width = `${progressPercentage}%`;
+
+  const newTime = (progressPercentage / 100) * audio.duration;
+  audio.currentTime = newTime;
+});
+
+progressBar.addEventListener('input', () => {
+  const progressPercentage = progress.value;
+  progressBar.style.width = `${progressPercentage}%`;
+
+  const newTime = (progressPercentage / 100) * audio.duration;
+  audio.currentTime = newTime;
+});
 
 //слушатели событий
 audio.addEventListener('timeupdate', updateProgressBar);
