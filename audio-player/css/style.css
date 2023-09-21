@@ -176,6 +176,7 @@ button:hover {
 @media (max-width: 680px) {
   .audio-player__content {
     width: 100%;
+    padding-right: 0px;
   }
 }
 .audio-player__image {
@@ -215,12 +216,13 @@ button:hover {
   background-color: #e0e0e0;
   border-radius: 5px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .progress {
   width: 0;
   height: 100%;
-  background-color: #4caf50;
+  background-color: #2e3a59;
   border-radius: 5px;
 }
 
@@ -242,6 +244,11 @@ button:hover {
   display: -ms-flexbox;
   display: flex;
 }
+@media (max-width: 450px) {
+  .controls {
+    width: 100%;
+  }
+}
 
 .repeat-button {
   margin-right: auto;
@@ -249,6 +256,47 @@ button:hover {
 .repeat-button img {
   width: 25px;
   height: 25px;
+}
+
+.prev-button img {
+  width: 56px;
+  height: 55px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+@media (max-width: 450px) {
+  .prev-button img {
+    width: 46px;
+    height: 45px;
+  }
+}
+
+.play-pause-button img {
+  width: 56px;
+  height: 55px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+@media (max-width: 450px) {
+  .play-pause-button img {
+    width: 46px;
+    height: 45px;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+}
+
+.next-button img {
+  width: 56px;
+  height: 55px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+@media (max-width: 450px) {
+  .next-button img {
+    width: 46px;
+    height: 45px;
+  }
 }
 
 .volume-button {
