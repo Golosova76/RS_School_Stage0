@@ -31,7 +31,7 @@ const tracks = [
     title: 'Living Next Door to Alice',
     artist: 'Smokie',
     duration: 205,
-    cover: 'img/cover/Smokie.jpg',//исправила путь
+    cover: 'img/cover/Smokie.jpg',// еще раз исправила путь
     audioSrc: 'songs/Smokie.mp3'
   },
 ];
