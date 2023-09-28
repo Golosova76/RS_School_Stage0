@@ -2,22 +2,24 @@
 
 const apiKey = 'ePstrItpauWzD-3NqOIzll4sgdRIquFL87yKGX99uI4';
 const imageContainer = document.querySelector('.image-gallery');
+const searchInput = document.querySelector('.search-input');
+const buttonSearch = document.querySelector('.button-search');
+const buttonClose = document.querySelector('.button-close');
+let query = 'spring';
 
-/*
 
-async function getData() {
-  const responce = await fetch(`https://api.unsplash.com/search/photos?query=spring&per_page=18&client_id=${apiKey}`);
+async function getData(query) {
+  const responce = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=18&client_id=${apiKey}`);
   let data = await responce.json();
   data = data.results;
   //console.log(data);
 
-  showData (data);
+  showData(data);
 }
-getData();
-
 
 
 function showData (data) {
+  imageContainer.innerHTML = '';
   data.map((photo) => {
     const divElement = document.createElement('div');
     divElement.classList.add('image-item');
@@ -31,4 +33,29 @@ function showData (data) {
   });
 }
 
-*/
+
+
+searchInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    const query = searchInput.value;
+    getData(query);
+  }
+});
+
+buttonSearch.addEventListener('click', () => {
+  const query = searchInput.value;
+  getData(query);
+});
+
+searchInput.addEventListener('input', () => {
+  buttonClose.style.visibility = searchInput.value ? 'visible' : 'hidden';
+});
+
+buttonClose.addEventListener('click', () => {
+  searchInput.value = '';
+  buttonClose.style.visibility = 'hidden';
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await getData(query);
+});

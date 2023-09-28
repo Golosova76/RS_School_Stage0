@@ -236,6 +236,14 @@ body {
   top: 9px;
   right: 11px;
   background: url("../img/icon/close_big.svg") 0 0 no-repeat;
+  visibility: hidden;
+}
+.button-close:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-filter: hue-rotate(60deg);
+          filter: hue-rotate(60deg);
 }
 
 .page:not(:last-child) {
