@@ -8,21 +8,68 @@
     <title>Image-gallery</title>
   </head>
   <body>
-    <footer class="footer">
-      <div class="footer__container">
-        <ul class="footer__items">
-          <li class="footer__item">2023</li>
-          <li class="footer__item">
-            <a class="footer__link" target="_blank" href="https://github.com/Golosova76">GitHub</a>
-          </li>
-          <li class="footer__item">
-            <a href="https://rs.school/js-stage0" target="_blank">
-              <img class="footer__image" src="img/icon/logo.svg" alt="logo" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+    <div class="wrapper">
+      <header class="header">
+        <div class="header__container">
+          <h1 class="title">Image Gallery API</h1>
+          <div class="search">
+            <button class="button button-search"></button>
+            <input class="search-input" type="text" placeholder="search image" name="search" autocomplete="off" autofocus />
+            <button class="button button-close"></button>
+          </div>
+        </div>
+      </header>
+      <main class="page">
+        <div class="page__container">
+          <div class="image-gallery">
+            <!--
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            <div class="image-item">
+              <img class="image" src="img/03.jpg" alt="" />
+            </div>
+            -->
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__container">
+          <ul class="footer__items">
+            <li class="footer__item">2023</li>
+            <li class="footer__item">
+              <a class="footer__link" target="_blank" href="https://github.com/Golosova76">GitHub</a>
+            </li>
+            <li class="footer__item">
+              <a href="https://rs.school/js-stage0" target="_blank">
+                <img class="footer__image" src="img/icon/logo.svg" alt="logo" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
     <script src="js/script.js"></script>
   </body>
 </html>
