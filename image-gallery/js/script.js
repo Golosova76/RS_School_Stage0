@@ -5,6 +5,8 @@ const imageContainer = document.querySelector('.image-gallery');
 const searchInput = document.querySelector('.search-input');
 const buttonSearch = document.querySelector('.button-search');
 const buttonClose = document.querySelector('.button-close');
+const modal = document.querySelector('.modal');
+const modalImage = document.querySelector('.modal-content img');
 let query = 'spring';
 
 
@@ -28,6 +30,10 @@ function showData (data) {
     imgElement.src = photo.urls.small;
     imgElement.alt = photo.alt_description;
     imgElement.classList.add('image');
+    // обработчик клика на картинку
+    imgElement.addEventListener('click', () => {
+      openModal(photo.urls.regular);
+    });
     divElement.append(imgElement);
     imageContainer.appendChild(divElement);
   });
@@ -58,4 +64,23 @@ buttonClose.addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await getData(query);
+});
+
+function openModal(imageUrl) {
+  modal.style.opacity = '1';
+  modal.style.visibility = 'visible';
+  modalImage.src = imageUrl;
+}
+
+function closeModal() {
+  //modal.style.display = 'none';
+  modal.style.opacity = '0';
+  modal.style.visibility = 'hidden';
+}
+
+modal.addEventListener('click', function (e) {
+  if (!e.target.closest('.modal-content')) {
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+  }
 });
