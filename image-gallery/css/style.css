@@ -256,6 +256,7 @@ body {
   -webkit-box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.5);
           box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  min-height: 400px;
 }
 
 .image-gallery {

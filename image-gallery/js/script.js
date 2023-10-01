@@ -11,33 +11,40 @@ let query = 'spring';
 
 
 async function getData(query) {
-  const responce = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=18&client_id=${apiKey}`);
-  let data = await responce.json();
-  data = data.results;
-  //console.log(data);
-
-  showData(data);
+  try {
+    const responce = await fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=36&client_id=${apiKey}`);
+    let data = await responce.json();
+    data = data.results;
+    //console.log(data);
+    showData(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 }
 
 
 function showData (data) {
   imageContainer.innerHTML = '';
-  data.map((photo) => {
-    const divElement = document.createElement('div');
-    divElement.classList.add('image-item');
-
-    const imgElement = document.createElement('img');
-    imgElement.src = photo.urls.small;
-    imgElement.alt = photo.alt_description;
-    imgElement.classList.add('image');
-    // обработчик клика на картинку
-    imgElement.addEventListener('click', () => {
-      openModal(photo.urls.regular);
-      document.body.classList.add('lock');
+  if (data.length > 0) {
+    data.map((photo) => {
+      const divElement = document.createElement('div');
+      divElement.classList.add('image-item');
+  
+      const imgElement = document.createElement('img');
+      imgElement.src = photo.urls.small;
+      imgElement.alt = photo.alt_description;
+      imgElement.classList.add('image');
+      // обработчик клика на картинку
+      imgElement.addEventListener('click', () => {
+        openModal(photo.urls.regular);
+        document.body.classList.add('lock');
+      });
+      divElement.append(imgElement);
+      imageContainer.appendChild(divElement);
     });
-    divElement.append(imgElement);
-    imageContainer.appendChild(divElement);
-  });
+  } else {
+    imageContainer.innerHTML = `No results were found for your request. Modify the request or try again.`;
+  }
 }
 
 
