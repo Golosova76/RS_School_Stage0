@@ -33,6 +33,7 @@ function showData (data) {
     // обработчик клика на картинку
     imgElement.addEventListener('click', () => {
       openModal(photo.urls.regular);
+      document.body.classList.add('lock');
     });
     divElement.append(imgElement);
     imageContainer.appendChild(divElement);
@@ -73,14 +74,15 @@ function openModal(imageUrl) {
 }
 
 function closeModal() {
-  //modal.style.display = 'none';
   modal.style.opacity = '0';
   modal.style.visibility = 'hidden';
+  document.body.classList.remove('lock');
 }
 
 modal.addEventListener('click', function (e) {
   if (!e.target.closest('.modal-content')) {
     modal.style.opacity = '0';
     modal.style.visibility = 'hidden';
+    document.body.classList.remove('lock');
   }
 });
