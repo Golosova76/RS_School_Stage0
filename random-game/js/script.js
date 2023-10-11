@@ -3,7 +3,7 @@ const canvas = document.querySelector('.canvas');
 const ctx = canvas.getContext('2d');
 
 //скорость игры
-const gameSpeed = 200;
+let gameSpeed = 200;
 
 const playGround = new Image();
 playGround.src = 'img/playground.png'
@@ -20,9 +20,14 @@ const scoreValue = document.querySelector('.score__value');
 // Получаем ссылку на элемент <header>
 const headerElement = document.querySelector('header');
 
+//получаем элементы для скорости игры
+const speedRange = document.querySelector('#speedRange');
+const speedDisplay = document.querySelector('#speedDisplay');
+
 //змейка 
 let snake;
-
+//
+let user = 'user';
 //еда
 let food;
 //счетчик
@@ -49,6 +54,9 @@ function initializeGame() {
   isGameOver = false;
   direction = 'right';
   scoreValue.textContent = '0';
+
+  gameSpeed = parseInt(speedRange.value); // Установка начальной скорости игры
+  speedDisplay.textContent = `Game Speed: ${gameSpeed} ms`;
   
   if (gameInterval) clearInterval(gameInterval);
   gameInterval = setInterval(drawSnake, gameSpeed);
@@ -64,7 +72,7 @@ function spawnFood() {
 //рисуем змейку
 function spawnSnake() {
   for (let i = 0; i < snake.length; i++) {
-    ctx.fillStyle = i === 0 ? 'green' : 'grey';
+    ctx.fillStyle = i === 0 ? 'green' : 'rgb(7, 66, 7)';
     ctx.fillRect(snake[i].x, snake[i].y, boxSize, boxSize);
   }
 }
@@ -76,6 +84,16 @@ document.addEventListener('keydown', (event) => {
   else if (event.key === 'ArrowDown' && direction !== 'up') direction = 'down';
   else if (event.key === 'ArrowLeft' && direction !== 'right') direction = 'left';
   else if (event.key === 'ArrowRight' && direction !== 'left') direction = 'right';
+});
+
+//слушаем событие input
+gameSpeed = parseInt(speedRange.value);
+
+speedRange.addEventListener('input', () => {
+  gameSpeed = parseInt(speedRange.value);
+  speedDisplay.textContent = `Game Speed: ${gameSpeed} ms`;
+  clearInterval(gameInterval);
+  gameInterval = setInterval(drawSnake, gameSpeed);
 });
 
 
@@ -123,19 +141,27 @@ function drawSnake() {
   else if (direction === 'left') snakeX -= boxSize;
   else if (direction === 'right') snakeX += boxSize;
 
-  let newHead = {
+  let newSnake = {
     x: snakeX,
     y: snakeY
   }
 
-  eatSnake(newHead, snake);
+  eatSnake(newSnake, snake);
 
-  snake.unshift(newHead);
+  snake.unshift(newSnake);
 }
 
 function endGame() {
   isGameOver = true;
   clearInterval(gameInterval);
+  // Получаем предыдущие результаты из localStorage или создаем новый массив
+  let gameResults = JSON.parse(localStorage.getItem('gameResults')) || [];
+  // Добавляем текущий результат в массив
+  gameResults.push({ user, score, gameSpeed });
+  gameResults = gameResults.slice(-10); // Сохранять только 10 последних результатов
+  // Сохраняем массив результатов в localStorage
+  localStorage.setItem('gameResults', JSON.stringify(gameResults));
+
   // отображение сообщения
   const gameOverMessage = document.createElement('div');
   gameOverMessage.textContent = 'Game over! Your score: ' + score;
@@ -147,7 +173,7 @@ function endGame() {
     initializeGame(); 
   }, 3000);
   //setTimeout(initializeGame, 3000)
-  scoreValue.textContent = '0';
+  //scoreValue.textContent = '0';
 }
 
 initializeGame();
