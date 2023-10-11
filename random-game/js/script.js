@@ -17,6 +17,9 @@ const boxSize = 31.5;
 //счетчик на сайте
 const scoreValue = document.querySelector('.score__value');
 
+// Получаем ссылку на элемент <header>
+const headerElement = document.querySelector('header');
+
 //змейка 
 let snake;
 
@@ -133,8 +136,17 @@ function drawSnake() {
 function endGame() {
   isGameOver = true;
   clearInterval(gameInterval);
+  // отображение сообщения
+  const gameOverMessage = document.createElement('div');
+  gameOverMessage.textContent = 'Game over! Your score: ' + score;
+  gameOverMessage.classList.add('game-over-message');
+  headerElement.appendChild(gameOverMessage);
   //рестарт игры через 3сек
-  setTimeout(initializeGame, 3000)
+  setTimeout(() => {
+    gameOverMessage.remove(); // Удаляем сообщение после 3 секунд
+    initializeGame(); 
+  }, 3000);
+  //setTimeout(initializeGame, 3000)
   scoreValue.textContent = '0';
 }
 
