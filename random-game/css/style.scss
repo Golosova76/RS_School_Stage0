@@ -36,6 +36,44 @@ $mainColor: #333333;
   background-color: #bdb6b6;
 }
 
+.canvas {
+  display: block;
+  margin: 50px auto 100px;
+  outline: #fff double 5px;
+  box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.page {
+  position: relative;
+  // .page__score
+
+  &__score {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    outline: #fff double 5px;
+    box-shadow: 0px 5px 20px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 25px;
+    @media (max-width: 1340px) {
+      top: 90%;
+      left: 30%;
+    }
+  }
+}
+.score {
+  // .score__text
+
+  &__text {
+  }
+
+  // .score__value
+
+  &__value {
+  }
+}
+
 /////////////////////////////////////
 .footer {
   background-color: #e2b8b8;

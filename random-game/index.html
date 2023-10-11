@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Random-game</title>
+    <title>Snake</title>
   </head>
   <body>
     <div class="wrapper">
       <header class="header"></header>
-      <main class="page"></main>
+      <main class="page">
+        <div class="page__score score">
+          <span class="score__text">SCORE:</span>
+          <span class="score__value">0</span>
+        </div>
+        <canvas class="canvas" width="630" height="630"></canvas>
+      </main>
       <footer class="footer">
         <div class="footer__container">
           <ul class="footer__items">
@@ -20,13 +26,13 @@
             </li>
             <li class="footer__item">
               <a href="https://rs.school/js-stage0" target="_blank">
-                <img class="footer__image" src="img/icon/logo.svg" alt="logo" />
+                <img class="footer__image" src="img/logo.svg" alt="logo" />
               </a>
             </li>
           </ul>
         </div>
       </footer>
     </div>
-    <script></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
