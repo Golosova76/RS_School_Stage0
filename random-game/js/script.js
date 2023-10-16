@@ -48,6 +48,8 @@ function initializeGame() {
     y: 10 * boxSize
   }
 
+  //snake.splice(1, snake.length - 1);
+
   spawnFood();
   spawnSnake();
   score = 0;
@@ -93,7 +95,7 @@ speedRange.addEventListener('input', () => {
   gameSpeed = parseInt(speedRange.value);
   speedDisplay.textContent = `Game Speed: ${gameSpeed} ms`;
   clearInterval(gameInterval);
-  gameInterval = setInterval(drawSnake, gameSpeed);
+  gameInterval = setInterval(updateGame, gameSpeed);
 });
 
 
@@ -116,7 +118,7 @@ function drawSnake() {
 
   if (isGameOver) return;
 
-  spawnSnake(); //нарисовали змейку
+  //spawnSnake(); //нарисовали змейку
 
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
@@ -149,6 +151,12 @@ function drawSnake() {
   eatSnake(newSnake, snake);
 
   snake.unshift(newSnake);
+
+  spawnSnake();
+}
+
+function updateGame() {
+  drawSnake();
 }
 
 function endGame() {
