@@ -1,2 +1,2 @@
-# golosova76-JSFEPRESCHOOL2023Q2
-Private repository for @golosova76
+# RS_School_Stage0
+
